@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년도 출판IP사업본부 매출 추정</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #21262d;
+    --bg4: #2d333b;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text2: #8b949e;
+    --text3: #6e7681;
+    --accent: #58a6ff;
+    --accent2: #1f6feb;
+    --green: #3fb950;
+    --green-dim: #1a4a25;
+    --blue: #58a6ff;
+    --blue-dim: #1a3a5c;
+    --orange: #f0883e;
+    --orange-dim: #5a3010;
+    --purple: #bc8cff;
+    --purple-dim: #3d2060;
+    --red: #f85149;
+    --yellow: #e3b341;
+    --col-A: #58a6ff;
+    --col-0: #a8b3c1;
+    --col-B: #3fb950;
+    --col-C: #f0883e;
+    --col-D: #bc8cff;
+    --col-E: #e3b341;
+    --col-F: #d2a8ff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 66.67vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-size: 13px;
+    zoom: 1.5;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-shrink: 0;
+  }
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-logo svg { width: 28px; height: 28px; }
+  .header-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+  .header-sub {
+    font-size: 11px;
+    color: var(--text3);
+    font-weight: 400;
+  }
+  .header-divider {
+    width: 1px; height: 28px;
+    background: var(--border);
+    margin: 0 4px;
+  }
+
+  /* CONTROLS */
+  .controls {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .control-label {
+    font-size: 11px;
+    color: var(--text3);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  /* Month tabs */
+  .month-tabs {
+    display: flex;
+    gap: 2px;
+    background: var(--bg3);
+    padding: 3px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .month-tab {
+    padding: 5px 10px;
+    border: none;
+    background: transparent;
+    color: var(--text2);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .month-tab:hover { background: var(--bg4); color: var(--text); }
+  .month-tab.active {
+    background: var(--accent2);
+    color: #fff;
+  }
+  .month-tab.special {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .month-tab.special.active {
+    background: var(--accent2);
+    color: #fff;
+  }
+
+  /* Mode selector */
+  .mode-select {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    outline: none;
+  }
+  .mode-select:focus { border-color: var(--accent); }
+
+  /* Unit toggle */
+  .unit-toggle {
+    display: flex;
+    gap: 2px;
+    background: var(--bg3);
+    padding: 3px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+  .unit-btn {
+    padding: 4px 10px;
+    border: none;
+    background: transparent;
+    color: var(--text2);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .unit-btn:hover { color: var(--text); }
+  .unit-btn.active { background: var(--bg4); color: var(--text); }
+
+  /* SUMMARY CARDS */
+  .summary-bar {
+    padding: 16px 24px;
+    display: flex;
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  .table-container {
+    padding: 16px 24px;
+    min-width: 900px;
+  }
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    min-width: 180px;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .card.card-A::before { background: var(--col-A); }
+  .card.card-0::before { background: var(--col-0); }
+  .card.card-B::before { background: var(--col-B); }
+  .card.card-C::before { background: var(--col-C); }
+  .card.card-D::before { background: var(--col-D); }
+  .card.card-E::before { background: var(--col-E); }
+  .card.card-F::before { background: var(--col-F); }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .card-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .card-name {
+    font-size: 11px;
+    color: var(--text2);
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card-A .card-tag { color: var(--col-A); }
+  .card-0 .card-tag { color: var(--col-0); }
+  .card-B .card-tag { color: var(--col-B); }
+  .card-C .card-tag { color: var(--col-C); }
+  .card-D .card-tag { color: var(--col-D); }
+  .card-E .card-tag { color: var(--col-E); }
+  .card-F .card-tag { color: var(--col-F); }
+  .card-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.5px;
+  }
+  .card-unit {
+    font-size: 11px;
+    color: var(--text3);
+    margin-left: 3px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .card-diff {
+    font-size: 11px;
+    margin-top: 4px;
+    color: var(--text3);
+  }
+  .card-diff.up { color: var(--green); }
+  .card-diff.down { color: var(--red); }
+
+  /* TABLE */
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    min-width: 900px;
+  }
+  thead tr {
+    background: var(--bg3);
+  }
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg3);
+  }
+  thead th {
+    padding: 10px 12px;
+    text-align: right;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+    color: var(--text2);
+    font-size: 11px;
+    letter-spacing: 0.3px;
+  }
+  thead th:first-child,
+  thead th:nth-child(2) {
+    text-align: left;
+  }
+  thead th.th-A { color: var(--col-A); border-bottom-color: var(--col-A); }
+  thead th.th-0 { color: var(--col-0); border-bottom-color: var(--col-0); }
+  thead th.th-B { color: var(--col-B); border-bottom-color: var(--col-B); }
+  thead th.th-C { color: var(--col-C); border-bottom-color: var(--col-C); }
+  thead th.th-D { color: var(--col-D); border-bottom-color: var(--col-D); }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+  }
+  tbody tr:hover { background: var(--bg3); }
+
+  /* 대분류 행 */
+  tr.row-major {
+    background: var(--bg2);
+    cursor: pointer;
+  }
+  tr.row-major:hover { background: var(--bg3); }
+  tr.row-major td {
+    padding: 7px 12px;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--text);
+  }
+  .major-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .toggle-icon {
+    font-size: 10px;
+    color: var(--text3);
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  .toggle-icon.open { transform: rotate(90deg); }
+
+  /* 중분류 행 */
+  tr.row-minor td {
+    padding: 5px 12px 5px 28px;
+    color: var(--text2);
+    font-size: 12px;
+  }
+  tr.row-major td:first-child,
+  tr.row-minor td:first-child {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* 총계 행 */
+  tr.row-total {
+    background: linear-gradient(90deg, rgba(31, 111, 235, 0.08), transparent);
+    border-top: 2px solid var(--border);
+  }
+  tr.row-total td {
+    padding: 11px 12px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  tr.row-total td:first-child { color: var(--accent); }
+
+  /* Number cells */
+  td.num {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: -0.3px;
+  }
+  td.num.val-A { color: var(--col-A); }
+  td.num.val-0 { color: var(--col-0); }
+  td.num.val-B { color: var(--col-B); }
+  td.num.val-C { color: var(--col-C); }
+  td.num.val-D { color: var(--col-D); }
+  td.num.val-E { color: var(--col-E); }
+  td.num.zero { color: var(--text3); }
+  td.num.negative { color: var(--red); }
+
+  td.gap-cell { text-align: right; font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+  td.gap-cell.up { color: var(--green); }
+  td.gap-cell.down { color: var(--red); }
+  td.gap-cell.zero { color: var(--text3); }
+
+  /* MONTH LABEL */
+  .period-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--blue-dim);
+    color: var(--blue);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid rgba(88,166,255,0.3);
+  }
+
+  /* No data */
+  .no-data {
+    color: var(--text3);
+    font-size: 11px;
+  }
+
+  /* TOOLTIP */
+  .tooltip {
+    position: fixed;
+    z-index: 9999;
+    background: var(--bg2);
+    border: 1px solid var(--col-D);
+    border-radius: 10px;
+    padding: 12px 14px;
+    min-width: 340px;
+    max-width: 480px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    font-size: 12px;
+    isolation: isolate;
+  }
+  .tooltip.visible { opacity: 1; }
+  .tooltip-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--col-D);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tooltip table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: unset;
+  }
+  .tooltip thead th {
+    font-size: 10px;
+    color: var(--text3);
+    font-weight: 600;
+    padding: 3px 6px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+  }
+  .tooltip thead th:first-child { text-align: left; }
+  .tooltip tbody tr { border-bottom: 1px solid rgba(48,54,61,0.5); }
+  .tooltip tbody tr:last-child { border-bottom: none; }
+  .tooltip tbody td {
+    padding: 5px 6px;
+    color: var(--text2);
+    font-size: 11px;
+    text-align: right;
+  }
+  .tooltip tbody td:first-child {
+    text-align: left;
+    color: var(--text);
+    max-width: 240px;
+    word-break: keep-all;
+  }
+  .tooltip tbody td.qty { color: var(--col-D); font-family: 'JetBrains Mono', monospace; }
+  .tooltip tbody td.amt { color: var(--col-E); font-family: 'JetBrains Mono', monospace; }
+  .tooltip-total {
+    margin-top: 7px;
+    padding-top: 6px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .tooltip-empty {
+    color: var(--text3);
+    font-size: 11px;
+    padding: 4px 0;
+  }
+  td.num.val-D.has-detail { cursor: pointer; }
+  td.num.val-D.has-detail:hover { background: rgba(188,140,255,0.1); border-radius: 4px; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+  .hidden { display: none !important; }
+
+  /* DRAWER */
+  .drawer-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: 420px;
+    background: var(--bg2);
+    border-left: 1px solid var(--border);
+    z-index: 201;
+    display: flex; flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.25s cubic-bezier(.4,0,.2,1);
+    box-shadow: -8px 0 32px rgba(0,0,0,0.4);
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-header {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+    flex-shrink: 0;
+  }
+  .drawer-title { font-size: 14px; font-weight: 700; color: var(--text); flex: 1; }
+  .drawer-badge {
+    background: var(--accent2); color: #fff;
+    font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 10px;
+    display: none;
+  }
+  .drawer-badge.visible { display: inline-block; }
+  .drawer-close {
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text2); border-radius: 6px;
+    padding: 5px 10px; cursor: pointer; font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .drawer-close:hover { background: var(--bg4); color: var(--text); }
+  .drawer-toolbar {
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+    flex-shrink: 0;
+  }
+  .drawer-search {
+    flex: 1; background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text); border-radius: 6px; padding: 6px 10px;
+    font-size: 12px; font-family: 'Noto Sans KR', sans-serif; outline: none;
+  }
+  .drawer-search:focus { border-color: var(--accent); }
+  .drawer-reset {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text3); border-radius: 6px; padding: 5px 10px;
+    cursor: pointer; font-size: 11px;
+    font-family: 'Noto Sans KR', sans-serif; white-space: nowrap;
+  }
+  .drawer-reset:hover { border-color: var(--red); color: var(--red); }
+  .drawer-body {
+    flex: 1; overflow-y: auto; padding: 8px 0;
+  }
+  .drawer-group-header {
+    padding: 8px 18px 4px;
+    font-size: 10px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+  }
+  .drawer-group-header:first-child { border-top: none; margin-top: 0; }
+  .drawer-subgroup {
+    padding: 4px 18px 2px;
+    font-size: 10px; color: var(--text3);
+    font-weight: 600; letter-spacing: 0.3px;
+  }
+  .drawer-book {
+    padding: 7px 18px;
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid rgba(48,54,61,0.4);
+    transition: background 0.1s;
+  }
+  .drawer-book:hover { background: var(--bg3); }
+  .drawer-book.changed { background: rgba(88,166,255,0.06); }
+  .drawer-book.cancelled { background: rgba(248,81,73,0.06); }
+  .drawer-book.cancelled .drawer-book-name { color: var(--red); text-decoration: line-through; }
+  .drawer-book-name {
+    flex: 1; font-size: 11px; color: var(--text2);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    min-width: 0;
+  }
+  .drawer-book.changed .drawer-book-name { color: var(--text); }
+  .drawer-month-orig {
+    font-size: 10px; color: var(--text3);
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .drawer-arrow { font-size: 10px; color: var(--text3); flex-shrink: 0; }
+  .month-select {
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text); border-radius: 5px; padding: 3px 6px;
+    font-size: 11px; font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer; outline: none; flex-shrink: 0; width: 64px;
+  }
+  .drawer-book.changed .month-select { border-color: var(--accent); color: var(--accent); }
+  .month-select.cancelled-select { border-color: var(--red); color: var(--red); }
+  .month-select:focus { border-color: var(--accent); }
+  .drawer-footer {
+    padding: 12px 18px;
+    border-top: 1px solid var(--border);
+    font-size: 11px; color: var(--text3);
+    text-align: center; flex-shrink: 0;
+  }
+
+  /* 신간 조정 버튼 */
+  .singan-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text2); border-radius: 6px; padding: 5px 12px;
+    cursor: pointer; font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif; font-weight: 500;
+    transition: all 0.15s; white-space: nowrap;
+  }
+  .singan-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .singan-btn-badge {
+    background: var(--accent2); color: #fff;
+    font-size: 10px; font-weight: 700;
+    padding: 1px 6px; border-radius: 8px;
+    display: none;
+  }
+  .singan-btn-badge.visible { display: inline-block; }
+
+  .header-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .data-info {
+    font-size: 11px;
+    color: var(--text3);
+  }
+
+  /* F. 현재시점추정 - 추가 스타일 */
+  .save-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--bg3); border: 1px solid var(--col-F);
+    color: var(--col-F); border-radius: 6px; padding: 5px 12px;
+    cursor: pointer; font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif; font-weight: 500;
+    transition: all 0.15s; white-space: nowrap;
+  }
+  .save-btn:hover { background: var(--purple-dim); }
+  .th-F { color: var(--col-F); border-bottom: 2px solid var(--col-F); }
+  .val-F { color: var(--col-F); font-weight: 500; }
+  .card.card-F::before { background: var(--col-F); }
+  .card-F .card-tag { color: var(--col-F); }
+
+  /* 붙여넣기 박스 */
+  .paste-box {
+    margin: 12px 24px 0 24px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--col-F);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+  .paste-box-header {
+    display: flex; align-items: center; gap: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .paste-box-title {
+    font-weight: 600;
+    color: var(--col-F);
+    font-size: 12px;
+  }
+  .paste-box-status {
+    color: var(--text2);
+    font-size: 11px;
+    flex: 1;
+  }
+  .paste-box-toggle {
+    color: var(--text3);
+    font-size: 11px;
+  }
+  .paste-box-body {
+    margin-top: 10px;
+    display: none;
+  }
+  .paste-box.open .paste-box-body { display: block; }
+  .paste-box.open .paste-box-toggle::before { content: '▼ 접기'; }
+  .paste-box .paste-box-toggle::before { content: '▶ 펼치기'; }
+  .paste-textarea {
+    width: 100%;
+    min-height: 100px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    resize: vertical;
+    outline: none;
+  }
+  .paste-textarea:focus { border-color: var(--col-F); }
+  .paste-actions {
+    margin-top: 8px;
+    display: flex; gap: 8px;
+  }
+  .paste-btn {
+    background: var(--col-F);
+    color: #1a1a1a;
+    border: none;
+    padding: 5px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 11px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .paste-btn:hover { opacity: 0.85; }
+  .paste-btn.secondary {
+    background: var(--bg3);
+    color: var(--text2);
+    border: 1px solid var(--border);
+  }
+  .paste-hint {
+    color: var(--text3);
+    font-size: 10px;
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+  .restore-toast {
+    position: fixed;
+    bottom: 16px; right: 16px;
+    background: var(--bg2);
+    border: 1px solid var(--col-F);
+    color: var(--text);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 11px;
+    z-index: 200;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    max-width: 360px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-logo">
+    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="28" height="28" rx="6" fill="#1f6feb"></rect>
+      <rect x="5" y="14" width="4" height="9" rx="1" fill="#58a6ff"></rect>
+      <rect x="12" y="10" width="4" height="13" rx="1" fill="#79c0ff"></rect>
+      <rect x="19" y="6" width="4" height="17" rx="1" fill="#cae8ff"></rect>
+    </svg>
+    <div>
+      <div class="header-title">2026년도 출판IP사업본부 매출 추정</div>
+      <div class="header-sub">Sales Management Dashboard · 2026</div>
+    </div>
+  </div>
+  <div class="header-divider"></div>
+  <div id="periodBadge" class="period-badge">
+    <span>📅</span><span id="periodLabel">전체 (연간)</span>
+  </div>
+  <div class="header-right">
+    <button class="singan-btn" onclick="openDrawer()">
+      📅 신간 출간월 조정
+      <span class="singan-btn-badge" id="singanBtnBadge">0</span>
+    </button>
+    <button class="save-btn" onclick="toggleFPopup()" id="fPopupBtn" title="F. 현재시점추정 데이터 입력" style="border-color:var(--border);color:var(--text3);">
+      📋 현재시점 입력
+    </button>
+    <button class="save-btn" onclick="saveAsHtml()" title="현재 입력한 F.현재시점추정 데이터와 신간 출간월 조정 내역을 HTML 파일로 저장합니다.">
+      💾 현재 상태로 저장
+    </button>
+    <div class="data-info">데이터: 119,003건 · 5개 대분류 · 13개 중분류</div>
+  </div>
+</div>
+
+<!-- DRAWER OVERLAY -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+
+<!-- DRAWER -->
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <span>📅</span>
+    <span class="drawer-title">신간 출간월 조정</span>
+    <span class="drawer-badge" id="drawerBadge">0건 변경</span>
+    <button class="drawer-close" onclick="closeDrawer()">닫기</button>
+  </div>
+  <div class="drawer-toolbar">
+    <input class="drawer-search" id="drawerSearch" type="text" placeholder="도서명 입력..." oninput="renderDrawer()" onkeydown="if(event.key==='Enter')renderDrawer()">
+    <button class="drawer-reset" onclick="renderDrawer()" style="border-color:var(--accent);color:var(--accent);">조회</button>
+    <button class="drawer-reset" onclick="resetAllMonths()">전체 초기화</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-footer">B · C 속성에만 적용됩니다. A 사업계획은 변경되지 않습니다.</div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <div class="control-group">
+    <span class="control-label">기간</span>
+    <div class="unit-toggle">
+      <button class="unit-btn" id="modeBtn1" onclick="setMode('single')">월별</button>
+      <button class="unit-btn" id="modeBtn2" onclick="setMode('range')">기간별</button>
+      <button class="unit-btn active" id="modeBtn3" onclick="setMode('all')">전체</button>
+    </div>
+  </div>
+
+  <!-- 월별 선택 -->
+  <div class="control-group hidden" id="singleWrap">
+    <span class="control-label">월</span>
+    <div class="month-tabs">
+      <button class="month-tab" onclick="selectSingle('01월')">01</button>
+      <button class="month-tab" onclick="selectSingle('02월')">02</button>
+      <button class="month-tab" onclick="selectSingle('03월')">03</button>
+      <button class="month-tab" onclick="selectSingle('04월')">04</button>
+      <button class="month-tab" onclick="selectSingle('05월')">05</button>
+      <button class="month-tab" onclick="selectSingle('06월')">06</button>
+      <button class="month-tab" onclick="selectSingle('07월')">07</button>
+      <button class="month-tab" onclick="selectSingle('08월')">08</button>
+      <button class="month-tab" onclick="selectSingle('09월')">09</button>
+      <button class="month-tab" onclick="selectSingle('10월')">10</button>
+      <button class="month-tab" onclick="selectSingle('11월')">11</button>
+      <button class="month-tab" onclick="selectSingle('12월')">12</button>
+    </div>
+  </div>
+
+  <!-- 기간별 선택 -->
+  <div class="control-group hidden" id="rangeWrap">
+    <span class="control-label">시작월</span>
+    <div class="month-tabs" id="startTabs">
+      <button class="month-tab active" onclick="selectStart('01월')">01</button>
+      <button class="month-tab" onclick="selectStart('02월')">02</button>
+      <button class="month-tab" onclick="selectStart('03월')">03</button>
+      <button class="month-tab" onclick="selectStart('04월')">04</button>
+      <button class="month-tab" onclick="selectStart('05월')">05</button>
+      <button class="month-tab" onclick="selectStart('06월')">06</button>
+      <button class="month-tab" onclick="selectStart('07월')">07</button>
+      <button class="month-tab" onclick="selectStart('08월')">08</button>
+      <button class="month-tab" onclick="selectStart('09월')">09</button>
+      <button class="month-tab" onclick="selectStart('10월')">10</button>
+      <button class="month-tab" onclick="selectStart('11월')">11</button>
+      <button class="month-tab" onclick="selectStart('12월')">12</button>
+    </div>
+    <span class="control-label" style="margin-left:8px;">~&nbsp;종료월</span>
+    <div class="month-tabs" id="endTabs">
+      <button class="month-tab" onclick="selectEnd('01월')">01</button>
+      <button class="month-tab" onclick="selectEnd('02월')">02</button>
+      <button class="month-tab" onclick="selectEnd('03월')">03</button>
+      <button class="month-tab" onclick="selectEnd('04월')">04</button>
+      <button class="month-tab" onclick="selectEnd('05월')">05</button>
+      <button class="month-tab" onclick="selectEnd('06월')">06</button>
+      <button class="month-tab" onclick="selectEnd('07월')">07</button>
+      <button class="month-tab" onclick="selectEnd('08월')">08</button>
+      <button class="month-tab" onclick="selectEnd('09월')">09</button>
+      <button class="month-tab" onclick="selectEnd('10월')">10</button>
+      <button class="month-tab" onclick="selectEnd('11월')">11</button>
+      <button class="month-tab active" onclick="selectEnd('12월')">12</button>
+    </div>
+  </div>
+
+  <div class="control-group" style="margin-left:auto;">
+    <span class="control-label">단위</span>
+    <div class="unit-toggle">
+      <button class="unit-btn" id="unitBtn1" onclick="setUnit('억')">억원</button>
+      <button class="unit-btn active" id="unitBtn2" onclick="setUnit('백만')">백만원</button>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <span class="control-label">화면크기</span>
+    <div class="unit-toggle">
+      <button class="unit-btn zoom-btn" onclick="setZoom(1.0)">80%</button>
+      <button class="unit-btn zoom-btn" onclick="setZoom(1.25)">100%</button>
+      <button class="unit-btn zoom-btn active" onclick="setZoom(1.5)">120%</button>
+      <button class="unit-btn zoom-btn" onclick="setZoom(1.875)">150%</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLTIP -->
+<div id="tooltip" class="tooltip" style="left: 781.333px; top: -11.6667px;">
+  <div class="tooltip-title">📦 D. 추가납품 상세</div>
+  <div id="tooltipBody">
+    <table>
+      <thead><tr>
+        <th style="text-align:left;">도서명</th>
+        <th>매출부수</th>
+        <th>매출금액</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>우리알고세계보고02.[12,000]시간을재는눈금시계</td>
+          <td class="qty">1,700부</td>
+          <td class="amt">9.2백만</td>
+        </tr><tr>
+          <td>문화교과서01.오페라에빠지다</td>
+          <td class="qty">200부</td>
+          <td class="amt">1.2백만</td>
+        </tr><tr>
+          <td>고전13.[16,800]조선최고의예술판소리</td>
+          <td class="qty">310부</td>
+          <td class="amt">2.3백만</td>
+        </tr><tr>
+          <td>꿈터15.[12,000]과학톡!공기야놀자</td>
+          <td class="qty">100부</td>
+          <td class="amt">0.6백만</td>
+        </tr><tr>
+          <td>재미난다과학.모모의땅탐구노트</td>
+          <td class="qty">4,600부</td>
+          <td class="amt">26.9백만</td>
+        </tr><tr>
+          <td>우리알고세계보고03.[14,000]물건을사고파는곳시장</td>
+          <td class="qty">1,600부</td>
+          <td class="amt">10.1백만</td>
+        </tr><tr>
+          <td>초등이야기14.[13,000]지난100년우리는어떻게살았을까?</td>
+          <td class="qty">710부</td>
+          <td class="amt">4.2백만</td>
+        </tr><tr>
+          <td>자연학교04.[13,000]강화도에저어새가살아요</td>
+          <td class="qty">1,300부</td>
+          <td class="amt">7.6백만</td>
+        </tr><tr>
+          <td>배움터01.[15,000]돌도끼에서우리별3호까지</td>
+          <td class="qty">300부</td>
+          <td class="amt">2.3백만</td>
+        </tr><tr>
+          <td>재판으로읽는우리사회.누구의잘못일까01</td>
+          <td class="qty">14,000부</td>
+          <td class="amt">78.4백만</td>
+        </tr><tr>
+          <td>우리알고세계보고01.[12,000]사람과세상을잇는다리</td>
+          <td class="qty">1,600부</td>
+          <td class="amt">8.6백만</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tooltip-total">
+      <span>합계</span>
+      <span>26,420부 &nbsp;|&nbsp; 151.3백만원</span>
+    </div></div>
+</div>
+
+<!-- SCROLL AREA (카드 + 테이블) -->
+<div class="scroll-area">
+
+<!-- SUMMARY CARDS -->
+<div class="summary-bar" id="summaryBar"><div class="card card-A">
+      <div class="card-tag">A</div>
+      <div class="card-name">사업계획 (목표)</div>
+      <div class="card-value">40,003.7<span class="card-unit">백만원</span></div>
+      </div><div class="card card-B">
+      <div class="card-tag">B</div>
+      <div class="card-name">보수적추정</div>
+      <div class="card-value">37,177.3<span class="card-unit">백만원</span></div>
+      <div class="card-diff down">▼ -2,826.4 백만원 (-7.1%) vs 사업계획</div></div><div class="card card-C">
+      <div class="card-tag">C</div>
+      <div class="card-name">정가인상추정</div>
+      <div class="card-value">38,255.9<span class="card-unit">백만원</span></div>
+      <div class="card-diff down">▼ -1,747.9 백만원 (-4.4%) vs 사업계획</div></div><div class="card card-D">
+      <div class="card-tag">D</div>
+      <div class="card-name">추가납품</div>
+      <div class="card-value">568.8<span class="card-unit">백만원</span></div>
+      </div><div class="card card-E">
+      <div class="card-tag">E</div>
+      <div class="card-name">어그레시브추정 (C+D)</div>
+      <div class="card-value">38,824.7<span class="card-unit">백만원</span></div>
+      <div class="card-diff down">▼ -1,179.0 백만원 (-2.9%) vs 사업계획</div></div><div class="card card-F">
+      <div class="card-tag">F</div>
+      <div class="card-name">현재시점추정</div>
+      <div class="card-value">36,028.0<span class="card-unit">백만원</span></div>
+      <div class="card-diff down">▼ -3,975.7 백만원 (-9.9%) vs 사업계획</div></div></div>
+
+<!-- F. 현재시점추정 플로팅 팝업 -->
+<div id="fPopupOverlay" style="display:none;position:fixed;inset:0;z-index:299;" onclick="closeFPopup()"></div>
+<div id="fPopup" style="display:none;position:fixed;top:64px;right:24px;width:520px;background:var(--bg2);border:1px solid var(--col-F);border-radius:10px;padding:16px;z-index:300;box-shadow:0 8px 32px rgba(0,0,0,0.5);">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+    <span style="font-size:14px;">📋</span>
+    <span style="font-size:13px;font-weight:700;color:var(--col-F);">F. 현재시점추정 데이터 입력</span>
+    <span id="pasteStatus" style="font-size:11px;color:var(--text2);flex:1;"></span>
+    <button onclick="closeFPopup()" style="background:var(--bg3);border:1px solid var(--border);color:var(--text2);border-radius:5px;padding:3px 10px;cursor:pointer;font-size:11px;font-family:'Noto Sans KR',sans-serif;">닫기</button>
+  </div>
+  <textarea class="paste-textarea" id="pasteArea" placeholder="구글시트 표를 통째로 복사해서 (헤더 포함) 여기에 붙여넣으세요. 단위는 원으로 인식합니다." style="height:120px;"></textarea>
+  <div class="paste-actions">
+    <button class="paste-btn" onclick="applyPasted()">적용</button>
+    <button class="paste-btn secondary" onclick="resetPasted()">초기화</button>
+  </div>
+  <div class="paste-hint" style="margin-top:6px;">
+    💡 대분류 | 중분류 | 01월~12월 탭 구분, 원 단위 · 헤더/합계 행 자동 제외
+  </div>
+</div>
+
+<!-- TABLE -->
+<div class="table-container">
+  <table id="mainTable">
+    <thead>
+      <tr>
+        <th style="width:120px;text-align:left;">구분</th>
+        <th class="th-0">0. 전년실적</th>
+        <th class="th-A">A. 사업계획</th>
+        <th class="th-B">B. 보수적추정</th>
+        <th style="color:var(--text3);font-size:10px;border-bottom:2px solid var(--border);">B-A</th>
+        <th class="th-C">C. 정가인상추정</th>
+        <th style="color:var(--text3);font-size:10px;border-bottom:2px solid var(--border);">C-A</th>
+        <th class="th-D">D. 추가납품</th>
+        <th style="color:#e3b341;border-bottom:2px solid #e3b341;">E. 어그레시브추정</th>
+        <th style="color:var(--text3);font-size:10px;border-bottom:2px solid var(--border);">E-A</th>
+        <th class="th-F">F. 현재시점추정</th>
+        <th style="color:var(--text3);font-size:10px;border-bottom:2px solid var(--border);">F-A</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"><tr class="row-major" onclick="toggleMajor('01.아동')">
+        <td colspan="2"><span class="major-toggle">
+          <span class="toggle-icon open" id="icon-01.아동">▶</span>01.아동
+        </span></td>
+        <td class="num val-A ">4,711.8</td><td class="num val-B ">4,330.8</td><td class="num gap-cell down">-381.0</td>
+        <td class="num val-C ">4,377.1</td><td class="num gap-cell down">-334.6</td>
+        <td class="num val-D ">308.5</td><td class="num val-E">4,685.6</td><td class="num gap-cell down">-26.2</td>
+        <td class="num val-F">4,013.0</td><td class="num gap-cell down">-698.8</td></tr><tr class="row-minor">
+            <td></td><td>11. 아동문학</td>
+            <td class="num val-A ">2,671.2</td><td class="num val-B ">2,488.6</td><td class="num gap-cell down">-182.6</td>
+            <td class="num val-C ">2,534.9</td><td class="num gap-cell down">-136.3</td>
+            <td class="num val-D has-detail" onmouseenter="showTooltip(event,'01.아동','11. 아동문학'); " onmouseleave="hideTooltip()">126.8</td><td class="num val-E">2,661.7</td><td class="num gap-cell down">-9.5</td>
+            <td class="num val-F">2,193.0</td><td class="num gap-cell down">-478.2</td></tr><tr class="row-minor">
+            <td></td><td>13. 아동인문</td>
+            <td class="num val-A ">1,610.6</td><td class="num val-B ">1,483.4</td><td class="num gap-cell down">-127.2</td>
+            <td class="num val-C ">1,483.4</td><td class="num gap-cell down">-127.2</td>
+            <td class="num val-D has-detail" onmouseenter="showTooltip(event,'01.아동','13. 아동인문'); " onmouseleave="hideTooltip()">151.3</td><td class="num val-E">1,634.7</td><td class="num gap-cell up">+24.1</td>
+            <td class="num val-F">1,572.0</td><td class="num gap-cell down">-38.6</td></tr><tr class="row-minor">
+            <td></td><td>17. 그림책</td>
+            <td class="num val-A ">430.0</td><td class="num val-B ">358.8</td><td class="num gap-cell down">-71.2</td>
+            <td class="num val-C ">358.8</td><td class="num gap-cell down">-71.2</td>
+            <td class="num val-D has-detail" onmouseenter="showTooltip(event,'01.아동','17. 그림책'); " onmouseleave="hideTooltip()">30.3</td><td class="num val-E">389.1</td><td class="num gap-cell down">-40.9</td>
+            <td class="num val-F">248.0</td><td class="num gap-cell down">-182.0</td></tr><tr class="row-major" onclick="toggleMajor('02.만화')">
+        <td colspan="2"><span class="major-toggle">
+          <span class="toggle-icon open" id="icon-02.만화">▶</span>02.만화
+        </span></td>
+        <td class="num val-A ">26,991.7</td><td class="num val-B ">25,875.0</td><td class="num gap-cell down">-1,116.7</td>
+        <td class="num val-C ">26,878.6</td><td class="num gap-cell down">-113.1</td>
+        <td class="num val-D ">260.4</td><td class="num val-E">27,139.0</td><td class="num gap-cell up">+147.3</td>
+        <td class="num val-F">24,865.0</td><td class="num gap-cell down">-2,126.7</td></tr><tr class="row-minor">
+            <td></td><td>21. 흔한남매</td>
+            <td class="num val-A ">13,220.0</td><td class="num val-B ">13,192.9</td><td class="num gap-cell down">-27.1</td>
+            <td class="num val-C ">13,868.5</td><td class="num gap-cell up">+648.5</td>
+            <td class="num val-D has-detail" onmouseenter="showTooltip(event,'02.만화','21. 흔한남매'); " onmouseleave="hideTooltip()">130.5</td><td class="num val-E">13,999.0</td><td class="num gap-cell up">+779.0</td>
+            <td class="num val-F">12,942.0</td><td class="num gap-cell down">-278.0</td></tr><tr class="row-minor">
+            <td></td><td>22. 에그박사</td>
+            <td class="num val-A ">3,000.0</td><td class="num val-B ">2,486.3</td><td class="num gap-cell down">-513.7</td>
+            <td class="num val-C ">2,592.2</td><td class="num gap-cell down">-407.8</td>
+            <td class="num val-D has-detail" onmouseenter="showTooltip(event,'02.만화','22. 에그박사'); " onmouseleave="hideTooltip()">48.3</td><td class="num val-E">2,640.5</td><td class="num gap-cell down">-359.5</td>
+            <td class="num val-F">2,658.0</td><td class="num gap-cell down">-342.0</td></tr><tr class="row-minor">
+            <td></td><td>23. 슈뻘맨</td>
+            <td class="num val-A ">2,700.0</td><td class="num val-B ">2,469.0</td><td class="num gap-cell down">-231.0</td>
+            <td class="num val-C ">2,550.1</td><td class="num gap-cell down">-149.9</td>
+            <td class="num val-D"><span class="no-data">-</span></td><td class="num val-E">2,550.1</td><td class="num gap-cell down">-149.9</td>
+            <td class="num val-F">2,344.0</td><td class="num gap-cell down">-356.0</td></tr><tr class="row-minor">
+            <td></td><td>24. 웃소</td>
+            <td class="num val-A ">970.0</td><td class="num val-B ">878.4</td><td class="num gap-cell down">-91.6</td>
+            <td class="num val-C ">909.3</td><td class="num gap-cell down">-60.7</td>
+            <td class="num val-D"><span class="no-data">-</span></td><td class="num val-E">909.3</td><td class="num gap-cell down">-60.7</td>
+            <td class="num val-F">810.0</td><td class="num gap-cell down">-160.0</td></tr><tr class="row-minor">
+            <td></td><td>25. 처음읽는</td>
+            <td class="num val-A ">3,000.0</td><td class="num val-B ">3,376.9</td><td class="num gap-cell up">+376.9</td>
+            <td class="num val-C ">3,486.9</td><td class="num gap-cell up">+486.9</td>
+            <td class="num val-D"><span class="no-data">-</span></td><td class="num val-E">3,486.9</td><td class="num gap-cell up">+486.9</td>
+            <td class="num val-F">3,129.0</td><td class="num gap-cell up">+129.0</td></tr><tr class="row-minor">
+            <td></td><td>26. 왕시리즈</td>
+            <td class="num val-A ">1,450.0</td><td class="num val-B ">1,450.2</td><td class="num gap-cell up">+0.2</td>
+            <td class="num val-C ">1,450.2</td><td class="num gap-cell up">+0.2</td>
+            <td class="num val-D"><span class="no-data">-</span></td><td class="num val-E">1,450.2</td><td class="num gap-cell up">+0.2</td>
+            <td class="num val-F">1,261.0</td><td class="num gap-cell down">-189.0</td></tr><tr class="row-minor">
+            <td></td><td>27. 살아/보물</td>
+            <td class="num val-A ">750.0</td><td class="num val-B ">716.8</td><td class="num gap-cell down">-33.2</td>
+            <td class="num val-C ">716.8</td><td class="num gap-cell down">-33.2</td>
+            <td class="num val-D has-detail" onmouseenter="showTooltip(event,'02.만화','27. 살아/보물'); " onmouseleave="hideTooltip()">81.6</td><td class="num val-E">798.4</td><td class="num gap-cell up">+48.4</td>
+            <td class="num val-F">572.0</td><td class="num gap-cell down">-178.0</td></tr><tr class="row-minor">
+            <td></td><td>29. 기타(만화)</td>
+            <td class="num val-A ">1,901.6</td><td class="num val-B ">1,304.5</td><td class="num gap-cell down">-597.1</td>
+            <td class="num val-C ">1,304.5</td><td class="num gap-cell down">-597.1</td>
+            <td class="num val-D"><span class="no-data">-</span></td><td class="num val-E">1,304.5</td><td class="num gap-cell down">-597.1</td>
+            <td class="num val-F">1,149.0</td><td class="num gap-cell down">-752.6</td></tr><tr class="row-major" onclick="toggleMajor('03.단행본')">
+        <td colspan="2"><span class="major-toggle">
+          <span class="toggle-icon open" id="icon-03.단행본">▶</span>03.단행본
+        </span></td>
+        <td class="num val-A ">3,350.0</td><td class="num val-B ">2,350.3</td><td class="num gap-cell down">-999.7</td>
+        <td class="num val-C ">2,378.8</td><td class="num gap-cell down">-971.2</td>
+        <td class="num val-D"><span class="no-data">-</span></td><td class="num val-E">2,378.8</td><td class="num gap-cell down">-971.2</td>
+        <td class="num val-F">2,556.0</td><td class="num gap-cell down">-794.0</td></tr><tr class="row-minor">
+            <td></td><td>32. 북폴리오</td>
+            <td class="num val-A ">1,472.5</td><td class="num val-B ">1,064.4</td><td class="num gap-cell down">-408.1</td>
+            <td class="num val-C ">1,077.3</td><td class="num gap-cell down">-395.2</td>
+            <td class="num val-D"><span class="no-data">-</span></td><td class="num val-E">1,077.3</td><td class="num gap-cell down">-395.2</td>
+            <td class="num val-F">1,053.0</td><td class="num gap-cell down">-419.5</td></tr><tr class="row-minor">
+            <td></td><td>33. 와이즈베리</td>
+            <td class="num val-A ">1,877.5</td><td class="num val-B ">1,285.9</td><td class="num gap-cell down">-591.6</td>
+            <td class="num val-C ">1,301.5</td><td class="num gap-cell down">-575.9</td>
+            <td class="num val-D"><span class="no-data">-</span></td><td class="num val-E">1,301.5</td><td class="num gap-cell down">-575.9</td>
+            <td class="num val-F">1,503.0</td><td class="num gap-cell down">-374.5</td></tr><tr class="row-major">
+        <td colspan="2" style="padding-left:16px;">98.전자책</td>
+        <td class="num val-A ">350.2</td><td class="num val-B ">339.6</td><td class="num gap-cell down">-10.6</td>
+        <td class="num val-C ">339.6</td><td class="num gap-cell down">-10.6</td>
+        <td class="num val-D"><span class="no-data">-</span></td><td class="num val-E">339.6</td><td class="num gap-cell down">-10.6</td>
+        <td class="num val-F">303.0</td><td class="num gap-cell down">-47.2</td></tr><tr class="row-major">
+        <td colspan="2" style="padding-left:16px;">99.저작권</td>
+        <td class="num val-A ">4,600.0</td><td class="num val-B ">4,281.7</td><td class="num gap-cell down">-318.3</td>
+        <td class="num val-C ">4,281.7</td><td class="num gap-cell down">-318.3</td>
+        <td class="num val-D"><span class="no-data">-</span></td><td class="num val-E">4,281.7</td><td class="num gap-cell down">-318.3</td>
+        <td class="num val-F">4,291.0</td><td class="num gap-cell down">-309.0</td></tr><tr class="row-total">
+    <td colspan="2">📊 합계</td>
+    <td class="num val-A">40,003.7</td>
+    <td class="num val-B">37,177.3</td>
+    <td class="num gap-cell down">-2,826.4</td>
+    <td class="num val-C">38,255.9</td>
+    <td class="num gap-cell down">-1,747.9</td>
+    <td class="num val-D">568.8</td>
+    <td class="num val-E">38,824.7</td>
+    <td class="num gap-cell down">-1,179.0</td>
+    <td class="num val-F">36,028.0</td><td class="num gap-cell down">-3,975.7</td>
+  </tr></tbody>
+  </table>
+</div>
+
+</div><!-- /scroll-area -->
+
+<script>
+const RAW = {"categories":{"01.아동":["11. 아동문학","17. 그림책","13. 아동인문"],"02.만화":["29. 기타(만화)","21. 흔한남매","27. 살아/보물","26. 왕시리즈","23. 슈뻘맨","22. 에그박사","24. 웃소","25. 처음읽는"],"03.단행본":["32. 북폴리오","33. 와이즈베리"],"98.전자책":["98.전자책"],"99.저작권":["99.저작권"]},"data":{"01월":{"03.단행본":{"32. 북폴리오":{"C.정가인상추정":53986997,"A.사업계획":91932000,"B.보수적추정":53986997},"33. 와이즈베리":{"C.정가인상추정":80755082,"A.사업계획":189016911,"B.보수적추정":80755082}},"01.아동":{"11. 아동문학":{"C.정가인상추정":290936479,"A.사업계획":282750820,"B.보수적추정":290936479},"17. 그림책":{"C.정가인상추정":7970844,"A.사업계획":18291460,"B.보수적추정":7970844},"13. 아동인문":{"C.정가인상추정":103907255,"A.사업계획":92641500,"B.보수적추정":103907255}},"02.만화":{"29. 기타(만화)":{"C.정가인상추정":43250385,"A.사업계획":60278800,"B.보수적추정":43250385},"21. 흔한남매":{"C.정가인상추정":771009184,"A.사업계획":561978141,"B.보수적추정":771008513},"27. 살아/보물":{"C.정가인상추정":60567152,"A.사업계획":67071600,"B.보수적추정":60567152},"26. 왕시리즈":{"C.정가인상추정":140986644,"A.사업계획":133219500,"B.보수적추정":140986644},"23. 슈뻘맨":{"C.정가인상추정":227816192,"A.사업계획":141513270,"B.보수적추정":227816192},"22. 에그박사":{"C.정가인상추정":157280044,"A.사업계획":215236372,"B.보수적추정":157280044},"24. 웃소":{"C.정가인상추정":99519959,"A.사업계획":137036881,"B.보수적추정":99519959},"25. 처음읽는":{"C.정가인상추정":257996878,"A.사업계획":225718903,"B.보수적추정":257996878}},"99.저작권":{"99.저작권":{"A.사업계획":5320000,"C.정가인상추정":25665390,"B.보수적추정":25665390}},"98.전자책":{"98.전자책":{"A.사업계획":26820000,"C.정가인상추정":24879588,"B.보수적추정":24879588}}},"02월":{"03.단행본":{"32. 북폴리오":{"C.정가인상추정":51683222,"A.사업계획":76633680,"B.보수적추정":51683222},"33. 와이즈베리":{"C.정가인상추정":81247542,"A.사업계획":189487257,"B.보수적추정":81247542}},"01.아동":{"11. 아동문학":{"C.정가인상추정":205670766,"A.사업계획":164692320,"B.보수적추정":205670766},"17. 그림책":{"C.정가인상추정":10169142,"A.사업계획":16556620,"B.보수적추정":10169142},"13. 아동인문":{"C.정가인상추정":128025723,"A.사업계획":91611300,"B.보수적추정":128025723}},"02.만화":{"29. 기타(만화)":{"C.정가인상추정":39636210,"A.사업계획":49947600,"B.보수적추정":39636210},"21. 흔한남매":{"C.정가인상추정":532995590,"A.사업계획":549619904,"B.보수적추정":532994923},"27. 살아/보물":{"C.정가인상추정":55483232,"A.사업계획":54463200,"B.보수적추정":55483232},"26. 왕시리즈":{"C.정가인상추정":119427254,"A.사업계획":107800500,"B.보수적추정":119427254},"23. 슈뻘맨":{"C.정가인상추정":247001591,"A.사업계획":235845420,"B.보수적추정":247001591},"22. 에그박사":{"C.정가인상추정":133799476,"A.사업계획":191067472,"B.보수적추정":133799476},"24. 웃소":{"C.정가인상추정":45289459,"A.사업계획":83662590,"B.보수적추정":45289459},"25. 처음읽는":{"C.정가인상추정":177316175,"A.사업계획":274573164,"B.보수적추정":177316175}},"99.저작권":{"99.저작권":{"A.사업계획":5320000,"C.정가인상추정":44091363,"B.보수적추정":44091363}},"98.전자책":{"98.전자책":{"A.사업계획":26780000,"C.정가인상추정":25062895,"B.보수적추정":25062895}}},"03월":{"03.단행본":{"32. 북폴리오":{"C.정가인상추정":54887402,"A.사업계획":115539840,"B.보수적추정":54887402},"33. 와이즈베리":{"C.정가인상추정":106056924,"A.사업계획":176044650,"B.보수적추정":106056924}},"02.만화":{"22. 에그박사":{"C.정가인상추정":133781109,"A.사업계획":218365180,"B.보수적추정":133781109},"21. 흔한남매":{"C.정가인상추정":702834488,"A.사업계획":725213024,"B.보수적추정":702833874},"29. 기타(만화)":{"C.정가인상추정":48504059,"A.사업계획":75769500,"B.보수적추정":48504059},"27. 살아/보물":{"C.정가인상추정":41860190,"A.사업계획":69574800,"B.보수적추정":41860190},"26. 왕시리즈":{"C.정가인상추정":95262431,"A.사업계획":105580500,"B.보수적추정":95262431},"23. 슈뻘맨":{"C.정가인상추정":130334494,"A.사업계획":156549420,"B.보수적추정":130334494},"24. 웃소":{"C.정가인상추정":48230466,"A.사업계획":43712864,"B.보수적추정":48230466},"25. 처음읽는":{"C.정가인상추정":299259088,"A.사업계획":195951173,"B.보수적추정":299259088}},"01.아동":{"11. 아동문학":{"C.정가인상추정":218533778,"A.사업계획":189231060,"B.보수적추정":218533778},"17. 그림책":{"C.정가인상추정":10373654,"A.사업계획":23442910,"B.보수적추정":10373654},"13. 아동인문":{"C.정가인상추정":117453348,"A.사업계획":162328500,"B.보수적추정":117453348}},"99.저작권":{"99.저작권":{"A.사업계획":37800000,"C.정가인상추정":51671432,"B.보수적추정":51671432}},"98.전자책":{"98.전자책":{"A.사업계획":28465000,"C.정가인상추정":21500000,"B.보수적추정":21500000}}},"04월":{"03.단행본":{"32. 북폴리오":{"A.사업계획":98962800,"C.정가인상추정":52311580,"B.보수적추정":52311580},"33. 와이즈베리":{"A.사업계획":151509450,"C.정가인상추정":89718930,"B.보수적추정":89718930}},"01.아동":{"17. 그림책":{"A.사업계획":34445480,"C.정가인상추정":34445477,"B.보수적추정":34445477},"11. 아동문학":{"A.사업계획":214486360,"C.정가인상추정":205425347,"B.보수적추정":205425347},"13. 아동인문":{"A.사업계획":115531500,"C.정가인상추정":114145498,"B.보수적추정":114145498}},"02.만화":{"27. 살아/보물":{"A.사업계획":65530200,"C.정가인상추정":65530198,"B.보수적추정":65530198},"26. 왕시리즈":{"A.사업계획":106119300,"C.정가인상추정":106119299,"B.보수적추정":106119299},"29. 기타(만화)":{"A.사업계획":86903500,"C.정가인상추정":69224124,"B.보수적추정":69224124},"22. 에그박사":{"A.사업계획":165868330,"C.정가인상추정":131807618,"B.보수적추정":131807618},"21. 흔한남매":{"A.사업계획":1962663520,"C.정가인상추정":2195188718,"B.보수적추정":2120015198},"25. 처음읽는":{"A.사업계획":230480391,"C.정가인상추정":291716385,"B.보수적추정":291716385},"24. 웃소":{"A.사업계획":58015703,"C.정가인상추정":48694510,"B.보수적추정":48694510},"23. 슈뻘맨":{"A.사업계획":281044140,"C.정가인상추정":277761418,"B.보수적추정":277761418}},"99.저작권":{"99.저작권":{"A.사업계획":734794452,"C.정가인상추정":672788050,"B.보수적추정":672788050}},"98.전자책":{"98.전자책":{"A.사업계획":28764000,"C.정가인상추정":28764000,"B.보수적추정":28764000}}},"05월":{"03.단행본":{"32. 북폴리오":{"A.사업계획":104669400,"C.정가인상추정":45280789,"B.보수적추정":45280789},"33. 와이즈베리":{"A.사업계획":146248410,"C.정가인상추정":101221889,"B.보수적추정":101221889}},"01.아동":{"17. 그림책":{"A.사업계획":37056280,"C.정가인상추정":37056279,"B.보수적추정":37056279},"11. 아동문학":{"A.사업계획":234087000,"C.정가인상추정":257116939,"B.보수적추정":257116939},"13. 아동인문":{"A.사업계획":131030700,"C.정가인상추정":163532699,"B.보수적추정":163532699,"D.추가납품":9180000}},"02.만화":{"27. 살아/보물":{"A.사업계획":57852000,"C.정가인상추정":57851998,"B.보수적추정":57851998},"26. 왕시리즈":{"A.사업계획":105009300,"C.정가인상추정":105009299,"B.보수적추정":105009299},"29. 기타(만화)":{"A.사업계획":62458500,"C.정가인상추정":50155124,"B.보수적추정":50155124},"22. 에그박사":{"A.사업계획":416199705,"C.정가인상추정":384152718,"B.보수적추정":384152718},"21. 흔한남매":{"A.사업계획":1041370624,"C.정가인상추정":1070344798,"B.보수적추정":995222398},"25. 처음읽는":{"A.사업계획":155441073,"C.정가인상추정":155819070,"B.보수적추정":155819070},"24. 웃소":{"A.사업계획":39123726,"C.정가인상추정":40039656,"B.보수적추정":40039656},"23. 슈뻘맨":{"A.사업계획":166461420,"C.정가인상추정":161841418,"B.보수적추정":161841418}},"99.저작권":{"99.저작권":{"A.사업계획":12984887,"C.정가인상추정":16980500,"B.보수적추정":16980500}},"98.전자책":{"98.전자책":{"A.사업계획":29660000,"C.정가인상추정":29660000,"B.보수적추정":29660000}}},"06월":{"03.단행본":{"32. 북폴리오":{"A.사업계획":124966200,"C.정가인상추정":45280789,"B.보수적추정":45280789},"33. 와이즈베리":{"A.사업계획":151886730,"C.정가인상추정":105967889,"B.보수적추정":105967889}},"01.아동":{"17. 그림책":{"A.사업계획":26330040,"C.정가인상추정":25264979,"B.보수적추정":25264979},"11. 아동문학":{"A.사업계획":178625040,"C.정가인상추정":119945026,"B.보수적추정":119945026},"13. 아동인문":{"A.사업계획":101254500,"C.정가인상추정":99832498,"B.보수적추정":99832498,"D.추가납품":1170000}},"02.만화":{"27. 살아/보물":{"A.사업계획":53395200,"C.정가인상추정":53395198,"B.보수적추정":53395198},"26. 왕시리즈":{"A.사업계획":133869300,"C.정가인상추정":129429299,"B.보수적추정":129429299},"29. 기타(만화)":{"A.사업계획":80144000,"C.정가인상추정":67756624,"B.보수적추정":67756624},"22. 에그박사":{"A.사업계획":213960098,"C.정가인상추정":180697032,"B.보수적추정":180697032},"21. 흔한남매":{"A.사업계획":980234784,"C.정가인상추정":1018432798,"B.보수적추정":943286398},"25. 처음읽는":{"A.사업계획":258469786,"C.정가인상추정":299965784,"B.보수적추정":299965784},"24. 웃소":{"A.사업계획":81682550,"C.정가인상추정":86818590,"B.보수적추정":86818590},"23. 슈뻘맨":{"A.사업계획":166164060,"C.정가인상추정":161841418,"B.보수적추정":161841418}},"99.저작권":{"99.저작권":{"A.사업계획":39384887,"C.정가인상추정":228860000,"B.보수적추정":228860000}},"98.전자책":{"98.전자책":{"A.사업계획":29672000,"C.정가인상추정":29672000,"B.보수적추정":29672000}}},"07월":{"01.아동":{"11. 아동문학":{"A.사업계획":162144060,"B.보수적추정":154884050,"C.정가인상추정":161467850},"13. 아동인문":{"A.사업계획":149985300,"B.보수적추정":104951699,"C.정가인상추정":104951699,"D.추가납품":2343600},"17. 그림책":{"A.사업계획":42083798,"D.추가납품":1980000,"B.보수적추정":40403795,"C.정가인상추정":40403795}},"02.만화":{"21. 흔한남매":{"A.사업계획":866882768,"B.보수적추정":793279319,"C.정가인상추정":868976639},"22. 에그박사":{"A.사업계획":173604223,"B.보수적추정":141329449,"C.정가인상추정":158996807,"D.추가납품":48330000},"23. 슈뻘맨":{"A.사업계획":403050948,"B.보수적추정":316287820,"C.정가인상추정":329776400},"24. 웃소":{"A.사업계획":124495546,"B.보수적추정":124163236,"C.정가인상추정":129095400},"25. 처음읽는":{"A.사업계획":230309210,"B.보수적추정":245266751,"C.정가인상추정":259758153},"26. 왕시리즈":{"A.사업계획":145883340,"B.보수적추정":145883339,"C.정가인상추정":145883339},"27. 살아/보물":{"A.사업계획":70701600,"B.보수적추정":70701598,"C.정가인상추정":70701598,"D.추가납품":81585000},"29. 기타(만화)":{"A.사업계획":121650000,"B.보수적추정":103130624,"C.정가인상추정":103130624}},"03.단행본":{"33. 와이즈베리":{"A.사업계획":155394690,"B.보수적추정":171547889,"C.정가인상추정":181447889},"32. 북폴리오":{"A.사업계획":141940200,"B.보수적추정":53920789,"C.정가인상추정":53920789}},"98.전자책":{"98.전자책":{"A.사업계획":30079000,"B.보수적추정":30079000,"C.정가인상추정":30079000}},"99.저작권":{"99.저작권":{"B.보수적추정":84240000,"C.정가인상추정":84240000,"A.사업계획":20064887}}},"08월":{"01.아동":{"11. 아동문학":{"A.사업계획":183903280,"B.보수적추정":167590665,"C.정가인상추정":174850305,"D.추가납품":2340000},"13. 아동인문":{"A.사업계획":159867900,"B.보수적추정":131961899,"C.정가인상추정":131961899,"D.추가납품":27510000},"17. 그림책":{"A.사업계획":49992780,"B.보수적추정":38400774,"C.정가인상추정":38400774,"D.추가납품":8415000}},"02.만화":{"21. 흔한남매":{"A.사업계획":798130848,"B.보수적추정":768963598,"C.정가인상추정":843796798},"22. 에그박사":{"A.사업계획":172604623,"B.보수적추정":141329449,"C.정가인상추정":158996807},"23. 슈뻘맨":{"A.사업계획":197882460,"B.보수적추정":154343740,"C.정가인상추정":167874800},"24. 웃소":{"A.사업계획":61903154,"B.보수적추정":61770631,"C.정가인상추정":66664917},"25. 처음읽는":{"A.사업계획":344308354,"B.보수적추정":445780349,"C.정가인상추정":464471024},"26. 왕시리즈":{"A.사업계획":121546620,"B.보수적추정":121546619,"C.정가인상추정":121546619},"27. 살아/보물":{"A.사업계획":58071600,"B.보수적추정":58071598,"C.정가인상추정":58071598},"29. 기타(만화)":{"A.사업계획":78191500,"B.보수적추정":64964124,"C.정가인상추정":64964124}},"03.단행본":{"33. 와이즈베리":{"A.사업계획":136449330,"B.보수적추정":105342930,"C.정가인상추정":108042930},"32. 북폴리오":{"A.사업계획":133874400,"B.보수적추정":172311580,"C.정가인상추정":176511580}},"98.전자책":{"98.전자책":{"A.사업계획":29953000,"B.보수적추정":29953000,"C.정가인상추정":29953000}},"99.저작권":{"99.저작권":{"B.보수적추정":39650000,"C.정가인상추정":39650000,"A.사업계획":53434887}}},"09월":{"01.아동":{"11. 아동문학":{"A.사업계획":185938300,"B.보수적추정":179898282,"C.정가인상추정":186966285,"D.추가납품":7819500},"13. 아동인문":{"A.사업계획":184710000,"B.보수적추정":130175099,"C.정가인상추정":130175099,"D.추가납품":10080000},"17. 그림책":{"A.사업계획":66256360,"B.보수적추정":39635995,"C.정가인상추정":39635995,"D.추가납품":19904000}},"02.만화":{"21. 흔한남매":{"A.사업계획":1692820448,"B.보수적추정":1680783598,"C.정가인상추정":1755532798},"22. 에그박사":{"A.사업계획":416507023,"B.보수적추정":377201449,"C.정가인상추정":394868807},"23. 슈뻘맨":{"A.사업계획":287576148,"B.보수적추정":255143740,"C.정가인상추정":268674800},"24. 웃소":{"A.사업계획":37089288,"B.보수적추정":44747278,"C.정가인상추정":49170744},"25. 처음읽는":{"A.사업계획":241822281,"B.보수적추정":258598757,"C.정가인상추정":275370141},"26. 왕시리즈":{"A.사업계획":114498300,"B.보수적추정":111168299,"C.정가인상추정":111168299},"27. 살아/보물":{"A.사업계획":56391600,"B.보수적추정":56391598,"C.정가인상추정":56391598},"29. 기타(만화)":{"A.사업계획":267075500,"B.보수적추정":178248124,"C.정가인상추정":178248124}},"03.단행본":{"33. 와이즈베리":{"A.사업계획":164183370,"B.보수적추정":97182930,"C.정가인상추정":98082930},"32. 북폴리오":{"A.사업계획":134275200,"B.보수적추정":121251580,"C.정가인상추정":123651580}},"98.전자책":{"98.전자책":{"A.사업계획":29685000,"B.보수적추정":29685000,"C.정가인상추정":29685000}},"99.저작권":{"99.저작권":{"B.보수적추정":111806210,"C.정가인상추정":111806210,"A.사업계획":416636023}}},"10월":{"01.아동":{"11. 아동문학":{"A.사업계획":257603160,"B.보수적추정":215387147,"C.정가인상추정":223278107,"D.추가납품":61320000},"13. 아동인문":{"A.사업계획":92997600,"B.보수적추정":88370098,"C.정가인상추정":88370098,"D.추가납품":4153500},"17. 그림책":{"A.사업계획":44681280,"B.보수적추정":44487327,"C.정가인상추정":44487327}},"02.만화":{"21. 흔한남매":{"A.사업계획":1052263424,"B.보수적추정":1034715357,"C.정가인상추정":1109515677},"22. 에그박사":{"A.사업계획":219086023,"B.보수적추정":180641449,"C.정가인상추정":198308807},"23. 슈뻘맨":{"A.사업계획":198179820,"B.보수적추정":144263740,"C.정가인상추정":157794800},"24. 웃소":{"A.사업계획":58110752,"B.보수적추정":50201962,"C.정가인상추정":55836816},"25. 처음읽는":{"A.사업계획":260660873,"B.보수적추정":311121348,"C.정가인상추정":324420847},"26. 왕시리즈":{"A.사업계획":112160700,"B.보수적추정":112160699,"C.정가인상추정":112160699},"27. 살아/보물":{"A.사업계획":63826800,"B.보수적추정":63826798,"C.정가인상추정":63826798},"29. 기타(만화)":{"A.사업계획":187217260,"B.보수적추정":86475324,"C.정가인상추정":86475324}},"03.단행본":{"33. 와이즈베리":{"A.사업계획":133461876,"B.보수적추정":92893231,"C.정가인상추정":93793231},"32. 북폴리오":{"A.사업계획":158254800,"B.보수적추정":157941583,"C.정가인상추정":158541583}},"98.전자책":{"98.전자책":{"A.사업계획":29955000,"B.보수적추정":29955000,"C.정가인상추정":29955000}},"99.저작권":{"99.저작권":{"B.보수적추정":366687275,"C.정가인상추정":366687275,"A.사업계획":846310000}}},"11월":{"01.아동":{"11. 아동문학":{"A.사업계획":267090360,"B.보수적추정":197370344,"C.정가인상추정":205318544},"13. 아동인문":{"A.사업계획":140102280,"B.보수적추정":127286279,"C.정가인상추정":127286279,"D.추가납품":88255000},"17. 그림책":{"A.사업계획":32221420,"B.보수적추정":32102468,"C.정가인상추정":32102468}},"02.만화":{"21. 흔한남매":{"A.사업계획":1152376544,"B.보수적추정":1045353357,"C.정가인상추정":1120099677,"D.추가납품":130462000},"22. 에그박사":{"A.사업계획":183100423,"B.보수적추정":145361449,"C.정가인상추정":163028807},"23. 슈뻘맨":{"A.사업계획":277475820,"B.보수적추정":245063740,"C.정가인상추정":258594800},"24. 웃소":{"A.사업계획":45577618,"B.보수적추정":44869776,"C.정가인상추정":49780582},"25. 처음읽는":{"A.사업계획":265640845,"B.보수적추정":279023639,"C.정가인상추정":298175974},"26. 왕시리즈":{"A.사업계획":141302100,"B.보수적추정":140747099,"C.정가인상추정":140747099},"27. 살아/보물":{"A.사업계획":74558400,"B.보수적추정":74558398,"C.정가인상추정":74558398},"29. 기타(만화)":{"A.사업계획":254339900,"B.보수적추정":197424124,"C.정가인상추정":197424124}},"03.단행본":{"33. 와이즈베리":{"A.사업계획":162797376,"B.보수적추정":145813231,"C.정가인상추정":146533231},"32. 북폴리오":{"A.사업계획":130131600,"B.보수적추정":122001583,"C.정가인상추정":122181583}},"98.전자책":{"98.전자책":{"A.사업계획":30421000,"B.보수적추정":30421000,"C.정가인상추정":30421000}},"99.저작권":{"99.저작권":{"B.보수적추정":773690000,"C.정가인상추정":773690000,"A.사업계획":1343080000}}},"12월":{"01.아동":{"11. 아동문학":{"A.사업계획":350647345,"B.보수적추정":275799502,"C.정가인상추정":285394463,"D.추가납품":55350000},"13. 아동인문":{"A.사업계획":188499600,"B.보수적추정":173735399,"C.정가인상추정":173735399,"D.추가납품":8640000},"17. 그림책":{"A.사업계획":38648990,"B.보수적추정":38530038,"C.정가인상추정":38530038}},"02.만화":{"21. 흔한남매":{"A.사업계획":1836450659,"B.보수적추정":1804407716,"C.정가인상추정":1879768796},"22. 에그박사":{"A.사업계획":414414289,"B.보수적추정":378932352,"C.정가인상추정":396498607},"23. 슈뻘맨":{"A.사업계획":188267820,"B.보수적추정":147287740,"C.정가인상추정":160818800},"24. 웃소":{"A.사업계획":199593106,"B.보수적추정":184081769,"C.정가인상추정":190181543},"25. 처음읽는":{"A.사업계획":316635201,"B.보수적추정":355004297,"C.정가인상추정":382632764},"26. 왕시리즈":{"A.사업계획":123016980,"B.보수적추정":122461979,"C.정가인상추정":122461979},"27. 살아/보물":{"A.사업계획":58576800,"B.보수적추정":58576798,"C.정가인상추정":58576798},"29. 기타(만화)":{"A.사업계획":577662500,"B.보수적추정":355737124,"C.정가인상추정":355737124}},"03.단행본":{"33. 와이즈베리":{"A.사업계획":121001976,"B.보수적추정":108139231,"C.정가인상추정":108679231},"32. 북폴리오":{"A.사업계획":161343600,"B.보수적추정":133521583,"C.정가인상추정":139041583}},"98.전자책":{"98.전자책":{"A.사업계획":29984000,"B.보수적추정":29984000,"C.정가인상추정":29984000}},"99.저작권":{"99.저작권":{"A.사업계획":1084870007,"B.보수적추정":1865570000,"C.정가인상추정":1865570000}}}}};
+
+const MONTHS = ['01월','02월','03월','04월','05월','06월','07월','08월','09월','10월','11월','12월'];
+const CATS = RAW.categories;
+
+// D.추가납품 도서별 상세 데이터 (월||대분류||중분류 → [{name, qty, amt}])
+const DTAIL = {"08월||01.아동||11. 아동문학":[{"name":"익사이팅북스레벨3.[13,000]닝컨시대","qty":400,"amt":2340000}],"09월||01.아동||11. 아동문학":[{"name":"익사이팅북스레벨2.[13,000]떠돌이할아버지와집없는아이들","qty":1203,"amt":7819500}],"10월||01.아동||11. 아동문학":[{"name":"지식그림책32.[13,000]달콤무시설탕을조심해","qty":2100,"amt":10920000},{"name":"교과서전통문화그림책08.고양이가데려간바람의집한옥","qty":9000,"amt":50400000}],"12월||01.아동||11. 아동문학":[{"name":"익사이팅북스레벨2.시간을빼앗는문구점XOV","qty":9000,"amt":46800000},{"name":"[9500]뉴명작논술13.빨간머리앤","qty":500,"amt":2850000},{"name":"[9500]뉴명작논술14.왕자와거지","qty":500,"amt":2850000},{"name":"[9500]뉴명작논술38.엄마찾아삼만리","qty":500,"amt":2850000}],"07월||01.아동||13. 아동인문":[{"name":"고전13.[16,800]조선최고의예술판소리","qty":310,"amt":2343600}],"08월||01.아동||13. 아동인문":[{"name":"꿈터15.[12,000]과학톡!공기야놀자","qty":100,"amt":600000},{"name":"재미난다과학.모모의땅탐구노트","qty":4600,"amt":26910000}],"09월||01.아동||13. 아동인문":[{"name":"우리알고세계보고03.[14,000]물건을사고파는곳시장","qty":1600,"amt":10080000}],"10월||01.아동||13. 아동인문":[{"name":"초등이야기14.[13,000]지난100년우리는어떻게살았을까?","qty":710,"amt":4153500}],"11월||01.아동||13. 아동인문":[{"name":"자연학교04.[13,000]강화도에저어새가살아요","qty":1300,"amt":7605000},{"name":"배움터01.[15,000]돌도끼에서우리별3호까지","qty":300,"amt":2250000},{"name":"재판으로읽는우리사회.누구의잘못일까01","qty":14000,"amt":78400000}],"12월||01.아동||13. 아동인문":[{"name":"우리알고세계보고01.[12,000]사람과세상을잇는다리","qty":1600,"amt":8640000}],"07월||01.아동||17. 그림책":[{"name":"그림책16.[11,000]마법의여름","qty":300,"amt":1980000}],"08월||01.아동||17. 그림책":[{"name":"그림책36.[11,000]우리형이니까","qty":1700,"amt":8415000}],"09월||01.아동||17. 그림책":[{"name":"[11,000]그림책.금메달은내거야","qty":2020,"amt":8888000},{"name":"그림책18.[11,000]눈내리는하굣길","qty":200,"amt":1320000},{"name":"그림책.날좀그냥내버려둬","qty":2020,"amt":9696000}],"11월||02.만화||21. 흔한남매":[{"name":"흔한남매 웅진 11월 납품 매출","qty":9000,"amt":57362000},{"name":"흔한남매 웅진 11월 납품 매출","qty":12000,"amt":73100000}],"07월||02.만화||22. 에그박사":[{"name":"에그박사 웅진 07월 납품 매출","qty":8000,"amt":48330000}],"07월||02.만화||27. 살아/보물":[{"name":"살아남기 웅진 07월 납품 매출","qty":12950,"amt":81585000}],"05월||01.아동||13. 아동인문":[{"name":"우리알고세계보고02.[12,000]시간을재는눈금시계","qty":1700,"amt":9180000}],"06월||01.아동||13. 아동인문":[{"name":"문화교과서01.오페라에빠지다","qty":200,"amt":1170000}]};
+
+// 툴팁
+const tooltipEl = document.getElementById('tooltip');
+const tooltipBody = document.getElementById('tooltipBody');
+let tooltipTimer = null;
+
+function getTooltipBooks(months, 대, 중) {
+  const map = {};
+  months.forEach(m => {
+    const key = `${m}||${대}||${중}`;
+    if (DTAIL[key]) {
+      DTAIL[key].forEach(b => {
+        if (map[b.name]) { map[b.name].qty += b.qty; map[b.name].amt += b.amt; }
+        else { map[b.name] = { qty: b.qty, amt: b.amt }; }
+      });
+    }
+  });
+  return Object.entries(map).map(([name, v]) => ({ name, ...v }));
+}
+
+function showTooltip(e, 대, 중) {
+  const months = getMonths();
+  const books = getTooltipBooks(months, 대, 중);
+  if (!books.length) return;
+
+  const totalQty = books.reduce((s, b) => s + b.qty, 0);
+  const totalAmt = books.reduce((s, b) => s + b.amt, 0);
+
+  tooltipBody.innerHTML = `
+    <table>
+      <thead><tr>
+        <th style="text-align:left;">도서명</th>
+        <th>매출부수</th>
+        <th>매출금액</th>
+      </tr></thead>
+      <tbody>
+        ${books.map(b => `<tr>
+          <td>${b.name}</td>
+          <td class="qty">${b.qty.toLocaleString()}부</td>
+          <td class="amt">${(b.amt/1000000).toFixed(1)}백만</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+    <div class="tooltip-total">
+      <span>합계</span>
+      <span>${totalQty.toLocaleString()}부 &nbsp;|&nbsp; ${(totalAmt/1000000).toFixed(1)}백만원</span>
+    </div>`;
+
+  positionTooltip(e);
+  tooltipEl.classList.add('visible');
+}
+
+function positionTooltip(e) {
+  const zoom = parseFloat(document.body.style.zoom) || 1.5;
+  const vw = window.innerWidth / zoom;
+  const vh = window.innerHeight / zoom;
+  const tw = 380, th = tooltipEl.offsetHeight || 180;
+  let x = e.clientX / zoom + 12;
+  let y = e.clientY / zoom + 12;
+  if (x + tw > vw - 10) x = e.clientX / zoom - tw - 12;
+  if (y + th > vh - 10) y = e.clientY / zoom - th - 12;
+  tooltipEl.style.left = x + 'px';
+  tooltipEl.style.top  = y + 'px';
+}
+
+function hideTooltip() { tooltipEl.classList.remove('visible'); }
+
+document.addEventListener('mousemove', e => {
+  if (tooltipEl.classList.contains('visible')) positionTooltip(e);
+});
+
+// 중분류 앞 번호 기준 내림차순 정렬
+Object.keys(CATS).forEach(대 => {
+  CATS[대].sort((a, b) => {
+    const numA = parseInt(a.match(/\d+/)?.[0] || '0');
+    const numB = parseInt(b.match(/\d+/)?.[0] || '0');
+    return numA - numB;
+  });
+});
+
+let currentMode = 'all';
+const _todayMonth = String(new Date().getMonth() + 1).padStart(2, '0') + '월';
+let currentSingle = _todayMonth;
+let currentStart = '01월';
+let currentEnd = '12월';
+let currentUnit = '억';
+let collapsed = {};
+Object.keys(CATS).forEach(d => { collapsed[d] = false; });
+
+function getMonths() {
+  if (currentMode === 'all') return MONTHS;
+  if (currentMode === 'single') return [currentSingle];
+  const s = MONTHS.indexOf(currentStart), e = MONTHS.indexOf(currentEnd);
+  return s <= e ? MONTHS.slice(s, e + 1) : MONTHS.slice(e, s + 1);
+}
+
+function getVal(months, 대, 중, attr) {
+  let sum = 0;
+  months.forEach(m => {
+    const v = RAW.data[m]?.[대]?.[중]?.[attr] || 0;
+    const d = DELTA[m]?.[대]?.[중]?.[attr] || 0;
+    sum += v + d;
+  });
+  return sum;
+}
+
+function fmt(v) {
+  if (v === 0) return '-';
+  return currentUnit === '억'
+    ? (v / 100000000).toFixed(1).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    : Math.round(v / 1000000).toLocaleString('ko-KR');
+}
+
+function fmtDiff(diff, base) {
+  if (base === 0 || diff === 0) return '-';
+  return `${diff > 0 ? '+' : ''}${(diff / base * 100).toFixed(1)}%`;
+}
+
+function unitLabel() { return currentUnit === '억' ? '억원' : '백만원'; }
+
+function render() {
+  const months = getMonths();
+  updatePeriodLabel(months);
+  renderCards(months);
+  renderTable(months);
+}
+
+function updatePeriodLabel(months) {
+  let label;
+  if (currentMode === 'all') label = '전체 (연간)';
+  else if (currentMode === 'single') label = currentSingle;
+  else {
+    const s = MONTHS.indexOf(currentStart), e = MONTHS.indexOf(currentEnd);
+    const [from, to] = s <= e ? [currentStart, currentEnd] : [currentEnd, currentStart];
+    label = `${from} ~ ${to} (${months.length}개월)`;
+  }
+  document.getElementById('periodLabel').textContent = label;
+}
+
+function renderCards(months) {
+  const totals = {A:0, B:0, C:0, D:0};
+  Object.keys(CATS).forEach(대 => {
+    CATS[대].forEach(중 => {
+      totals.A += getVal(months, 대, 중, 'A.사업계획');
+      totals.B += getVal(months, 대, 중, 'B.보수적추정');
+      totals.C += getVal(months, 대, 중, 'C.정가인상추정');
+      totals.D += getVal(months, 대, 중, 'D.추가납품');
+    });
+  });
+  const totalF = getValFTotal(months);
+  const totalP = getValPrevTotal(months);
+  const hasF = totalF > 0;
+  const ul = unitLabel();
+
+  const makeDiffLine = (val, base, label) => {
+    if (!base || base === 0) return '';
+    const diff = val - base;
+    const arrow = diff >= 0 ? '▲' : '▼';
+    const cls   = diff >= 0 ? 'up' : 'down';
+    const sign  = diff >= 0 ? '+' : '';
+    const pct   = (diff / base * 100).toFixed(1);
+    return `<div class="card-diff ${cls}">${arrow} ${sign}${fmt(diff)} ${ul} (${sign}${pct}%) ${label}</div>`;
+  };
+
+  const cards = [
+    { cls:'0', tag:'0', name:'전년실적 (2025)', val:totalP,           vsA: null,                        vsP: null },
+    { cls:'A', tag:'A', name:'사업계획 (목표)', val:totals.A,         vsA: null,                        vsP: totalP > 0 ? totalP : null },
+    { cls:'B', tag:'B', name:'보수적추정',       val:totals.B,         vsA: totals.A,                    vsP: totalP > 0 ? totalP : null },
+    { cls:'C', tag:'C', name:'정가인상추정',     val:totals.C,         vsA: totals.A,                    vsP: totalP > 0 ? totalP : null },
+    { cls:'E', tag:'E', name:'어그레시브추정 (C+D)', val:totals.C+totals.D, vsA: totals.A,              vsP: totalP > 0 ? totalP : null },
+    { cls:'F', tag:'F', name:'현재시점추정',     val:hasF ? totalF : 0, vsA: hasF ? totals.A : null,    vsP: hasF && totalP > 0 ? totalP : null },
+  ];
+
+  document.getElementById('summaryBar').innerHTML = cards.map(c => {
+    // A 카드: vs 전년만 표시 (vs 목표 없음)
+    // 0 카드: 아무것도 없음
+    let diffHtml = '';
+    if (c.cls === 'A') {
+      diffHtml = makeDiffLine(c.val, c.vsP, 'vs 전년');
+    } else {
+      diffHtml += makeDiffLine(c.val, c.vsP, 'vs 전년');
+      diffHtml += makeDiffLine(c.val, c.vsA, 'vs 목표');
+    }
+    return `<div class="card card-${c.cls}">
+      <div class="card-header"><span class="card-tag">${c.tag}</span><span class="card-name">${c.name}</span></div>
+      <div class="card-value">${c.val > 0 ? fmt(c.val) : '-'}<span class="card-unit">${ul}</span></div>
+      ${diffHtml}</div>`;
+  }).join('');
+}
+
+// ── 카테고리 표시명 매핑 ──────────────────────────────────
+const DISPLAY = {
+  '01.아동':          '아동 IP',
+  '11. 아동문학':     '픽션 IP',
+  '13. 아동인문':     '논픽션 IP',
+  '17. 그림책':       '그림책 IP',
+  '02.만화':          '만화 IP',
+  '21. 흔한남매':     '흔한남매',
+  '22. 에그박사':     '에그박사',
+  '23. 슈뻘맨':       '슈뻘맨',
+  '24. 웃소':         '웃소',
+  '25. 처음읽는':     '처음읽는',
+  '26. 왕시리즈':     '왕시리즈',
+  '27. 살아/보물':    '살아/보물',
+  '29. 기타(만화)':   '기타 IP',
+  '03.단행본':        '크로스오버 IP',
+  '32. 북폴리오':     '북폴리오',
+  '33. 와이즈베리':   '와이즈베리',
+  '98.전자책':        '전자책',
+  '99.저작권':        '글로벌IP사업',
+};
+const dn = k => DISPLAY[k] || k;
+
+function renderTable(months) {
+  const body = document.getElementById('tableBody');
+  let html = '';
+  let gt = {A:0, B:0, C:0, D:0, F:0, P:0};
+
+  const diffCellV = (diff) => {
+    if (diff === 0) return `<td class="num gap-cell zero">-</td>`;
+    const cls = diff > 0 ? 'up' : 'down';
+    const sign = diff > 0 ? '+' : '-';
+    return `<td class="num gap-cell ${cls}">${sign}${fmt(Math.abs(diff))}</td>`;
+  };
+
+  // F-A 차이셀 (F가 0이면 - 표시, A 기준 비교)
+  const diffCellF = (f, a) => {
+    if (f === 0) return `<td class="num gap-cell"><span class="no-data">-</span></td>`;
+    const diff = f - a;
+    if (diff === 0) return `<td class="num gap-cell zero">-</td>`;
+    const cls = diff > 0 ? 'up' : 'down';
+    const sign = diff > 0 ? '+' : '-';
+    return `<td class="num gap-cell ${cls}">${sign}${fmt(Math.abs(diff))}</td>`;
+  };
+
+  // F 셀 (값이 0이면 - 표시)
+  const fCell = (v) => {
+    if (v === 0) return `<td class="num val-F"><span class="no-data">-</span></td>`;
+    return `<td class="num val-F">${fmt(v)}</td>`;
+  };
+
+  Object.keys(CATS).forEach(대분류 => {
+    const isSingle = CATS[대분류].length === 1 && CATS[대분류][0] === 대분류;
+    let dt = {A:0, B:0, C:0, D:0, F:0, P:0};
+    CATS[대분류].forEach(중분류 => {
+      dt.A += getVal(months, 대분류, 중분류, 'A.사업계획');
+      dt.B += getVal(months, 대분류, 중분류, 'B.보수적추정');
+      dt.C += getVal(months, 대분류, 중분류, 'C.정가인상추정');
+      dt.D += getVal(months, 대분류, 중분류, 'D.추가납품');
+      dt.F += getValF(months, 대분류, 중분류);
+      dt.P += getValPrev(months, 대분류, 중분류);
+    });
+    gt.A += dt.A; gt.B += dt.B; gt.C += dt.C; gt.D += dt.D; gt.F += dt.F; gt.P += dt.P;
+
+    const isOpen = !collapsed[대분류];
+    const diffB = dt.B - dt.A, diffC = dt.C - dt.A;
+    const BD = dt.B + dt.D, CD = dt.C + dt.D;
+
+    const numCells = (v, cls) => `<td class="num ${cls} ${v===0?'zero':''}">${fmt(v)}</td>`;
+    const dCell = (v, 대, 중) => {
+      if (v <= 0) return `<td class="num val-D"><span class="no-data">-</span></td>`;
+      const hasDetail = getMonths().some(m => DTAIL[`${m}||${대}||${중}`]);
+      const hover = hasDetail ? `onmouseenter="showTooltip(event,'${대.replace(/'/g,"\\'")}','${중.replace(/'/g,"\\'")}'); " onmouseleave="hideTooltip()"` : '';
+      return `<td class="num val-D ${hasDetail?'has-detail':''}" ${hover}>${fmt(v)}</td>`;
+    };
+    const eCell = (c, d) => `<td class="num val-E">${fmt(c+d)}</td>`;
+
+    if (isSingle) {
+      html += `<tr class="row-major">
+        <td style="padding-left:12px;">${dn(대분류)}</td>
+        ${numCells(dt.P,'val-0')}
+        ${numCells(dt.A,'val-A')}${numCells(dt.B,'val-B')}${diffCellV(dt.B-dt.A)}
+        ${numCells(dt.C,'val-C')}${diffCellV(dt.C-dt.A)}
+        ${dCell(dt.D,대분류,'_all')}${eCell(dt.C,dt.D)}${diffCellV(dt.C+dt.D-dt.A)}
+        ${fCell(dt.F)}${diffCellF(dt.F, dt.A)}</tr>`;
+    } else {
+      html += `<tr class="row-major" onclick="toggleMajor('${대분류}')">
+        <td><span class="major-toggle">
+          <span class="toggle-icon ${isOpen?'open':''}" id="icon-${대분류}">▶</span>${dn(대분류)}
+        </span></td>
+        ${numCells(dt.P,'val-0')}
+        ${numCells(dt.A,'val-A')}${numCells(dt.B,'val-B')}${diffCellV(dt.B-dt.A)}
+        ${numCells(dt.C,'val-C')}${diffCellV(dt.C-dt.A)}
+        ${dCell(dt.D,대분류,'_all')}${eCell(dt.C,dt.D)}${diffCellV(dt.C+dt.D-dt.A)}
+        ${fCell(dt.F)}${diffCellF(dt.F, dt.A)}</tr>`;
+
+      if (isOpen) {
+        CATS[대분류].forEach(중분류 => {
+          const A = getVal(months,대분류,중분류,'A.사업계획');
+          const B = getVal(months,대분류,중분류,'B.보수적추정');
+          const C = getVal(months,대분류,중분류,'C.정가인상추정');
+          const D = getVal(months,대분류,중분류,'D.추가납품');
+          const F = getValF(months,대분류,중분류);
+          const P = getValPrev(months,대분류,중분류);
+          html += `<tr class="row-minor">
+            <td style="padding-left:28px;">└ ${dn(중분류)}</td>
+            ${numCells(P,'val-0')}
+            ${numCells(A,'val-A')}${numCells(B,'val-B')}${diffCellV(B-A)}
+            ${numCells(C,'val-C')}${diffCellV(C-A)}
+            ${dCell(D,대분류,중분류)}${eCell(C,D)}${diffCellV(C+D-A)}
+            ${fCell(F)}${diffCellF(F, A)}</tr>`;
+        });
+      }
+    }
+  });
+
+  html += `<tr class="row-total">
+    <td>📊 합계</td>
+    <td class="num val-0">${fmt(gt.P)}</td>
+    <td class="num val-A">${fmt(gt.A)}</td>
+    <td class="num val-B">${fmt(gt.B)}</td>
+    ${diffCellV(gt.B-gt.A)}
+    <td class="num val-C">${fmt(gt.C)}</td>
+    ${diffCellV(gt.C-gt.A)}
+    <td class="num val-D">${gt.D>0?fmt(gt.D):'-'}</td>
+    <td class="num val-E">${fmt(gt.C+gt.D)}</td>
+    ${diffCellV(gt.C+gt.D-gt.A)}
+    ${fCell(gt.F)}${diffCellF(gt.F, gt.A)}
+  </tr>`;
+  body.innerHTML = html;
+}
+
+function toggleMajor(대분류) { collapsed[대분류] = !collapsed[대분류]; render(); }
+
+function setMode(m) {
+  currentMode = m;
+  document.getElementById('singleWrap').classList.toggle('hidden', m !== 'single');
+  document.getElementById('rangeWrap').classList.toggle('hidden', m !== 'range');
+  ['modeBtn1','modeBtn2','modeBtn3'].forEach((id,i) => {
+    document.getElementById(id).classList.toggle('active', ['single','range','all'][i] === m);
+  });
+  render();
+}
+
+function selectSingle(m) {
+  currentSingle = m;
+  document.querySelectorAll('#singleWrap .month-tab').forEach((btn,i) => btn.classList.toggle('active', MONTHS[i] === m));
+  render();
+}
+
+function selectStart(m) {
+  currentStart = m;
+  document.querySelectorAll('#startTabs .month-tab').forEach((btn,i) => btn.classList.toggle('active', MONTHS[i] === m));
+  render();
+}
+
+function selectEnd(m) {
+  currentEnd = m;
+  document.querySelectorAll('#endTabs .month-tab').forEach((btn,i) => btn.classList.toggle('active', MONTHS[i] === m));
+  render();
+}
+
+function setZoom(z) {
+  document.body.style.zoom = z;
+  document.body.style.height = (100 / z).toFixed(4) + 'vh';
+  // 버튼 active 상태 갱신
+  const levels = [1.0, 1.25, 1.5, 1.875];
+  const labels = ['80%','100%','120%','150%'];
+  document.querySelectorAll('.zoom-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', levels[i] === z);
+  });
+}
+
+function setUnit(u) {
+  currentUnit = u;
+  document.getElementById('unitBtn1').classList.toggle('active', u === '억');
+  document.getElementById('unitBtn2').classList.toggle('active', u === '백만');
+  render();
+}
+
+// ── 신간 데이터 ──────────────────────────────────────────
+const SINGAN = [{"code":"59520001","name":"교과서전통문화그림책08.고양이가데려간바람의집한옥","cat1":"01.아동","cat2":"11. 아동문학","origMonth":2,"B":{"6":234000,"7":156000,"8":156000,"9":156000,"10":156000,"11":156000,"3":234000,"4":234000,"5":234000,"2":7101640},"C":{"2":7101640,"6":234000,"7":156000,"8":156000,"9":156000,"10":156000,"11":156000,"3":234000,"4":234000,"5":234000}},{"code":"61016001","name":"익사이팅북스레벨1.엄마친구말고내친구랑놀래<가제>","cat1":"01.아동","cat2":"11. 아동문학","origMonth":2,"B":{"6":390000,"7":1560000,"8":390000,"9":390000,"10":780000,"11":780000,"3":7800000,"4":780000,"5":390000},"C":{"6":390000,"7":1560000,"8":390000,"9":390000,"10":780000,"11":780000,"3":7800000,"4":780000,"5":390000}},{"code":"63486001","name":"손에잡히는경제","cat1":"03.단행본","cat2":"33. 와이즈베리","origMonth":2,"B":{"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"C":{"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0}},{"code":"64943001","name":"빼앗는국가","cat1":"03.단행본","cat2":"33. 와이즈베리","origMonth":6,"B":{"6":0,"7":0,"8":7200000,"9":12000000,"10":6000000,"11":6000000},"C":{"6":0,"7":0,"8":7200000,"9":12000000,"10":6000000,"11":6000000}},{"code":"71133001","name":"역사인물동화02.이순신을도와라","cat1":"01.아동","cat2":"13. 아동인문","origMonth":10,"B":{"10":10080000,"11":1680000},"C":{"10":10080000,"11":1680000}},{"code":"71502001","name":"미래과학인문학습만화 VS 01","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":6,"B":{"5":0,"6":15120000,"7":5040000,"8":3024000,"9":1008000,"10":1008000,"11":2016000},"C":{"5":0,"6":15120000,"7":5040000,"8":3024000,"9":1008000,"10":1008000,"11":2016000}},{"code":"71506001","name":"미래과학인문학습만화 VS 02","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":6,"B":{"5":0,"6":15120000,"7":5040000,"8":3024000,"9":1008000,"10":1008000,"11":2016000},"C":{"5":0,"6":15120000,"7":5040000,"8":3024000,"9":1008000,"10":1008000,"11":2016000}},{"code":"72325001","name":"흔한남매.수수께끼어드벤처07","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":4,"B":{"6":5040000,"7":3024000,"8":2016000,"9":2016000,"10":2016000,"11":2016000,"3":0,"4":120960000,"5":15120000},"C":{"3":0,"4":120960000,"5":15120000,"6":5040000,"7":3024000,"8":2016000,"9":2016000,"10":2016000,"11":2016000}},{"code":"72411001","name":"묘신계요괴전05","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":0,"B":{"1":6584450,"2":567095},"C":{"1":6584450,"2":567095}},{"code":"72425001","name":"서바이벌69.위험생물세계에서살아남기1","cat1":"02.만화","cat2":"27. 살아/보물","origMonth":0,"B":{"6":1680000,"7":1260000,"0":16458400,"1":3814020,"2":4042080,"3":1680000,"4":1680000,"5":1680000,"8":1260000,"9":840000,"10":840000,"11":840000},"C":{"0":16458400,"1":3814020,"2":4042080,"3":1680000,"4":1680000,"5":1680000,"6":1680000,"7":1260000,"8":1260000,"9":840000,"10":840000,"11":840000}},{"code":"72712001","name":"미래엔그림책.아이세움.물도화지","cat1":"01.아동","cat2":"17. 그림책","origMonth":6,"B":{"6":7320000,"7":915000,"8":796050,"9":796050,"10":796050,"11":796050,"5":0},"C":{"6":7320000,"7":915000,"8":796050,"9":796050,"10":796050,"11":796050,"5":0}},{"code":"72713001","name":"미래엔그림책.새벽","cat1":"01.아동","cat2":"17. 그림책","origMonth":3,"B":{"6":2020320,"7":955260,"8":955260,"9":955260,"10":922320,"11":922320,"3":9322020,"4":1987380,"5":955260},"C":{"6":2020320,"7":955260,"8":955260,"9":955260,"10":922320,"11":922320,"3":9322020,"4":1987380,"5":955260}},{"code":"72714001","name":"미래엔그림책.아이세움.암호는폭풍우치는밤에","cat1":"01.아동","cat2":"17. 그림책","origMonth":4,"B":{"6":2882250,"7":2745000,"8":2745000,"9":2745000,"10":1830000,"11":1830000,"4":9150000,"5":5490000},"C":{"6":2882250,"7":2745000,"8":2745000,"9":2745000,"10":1830000,"11":1830000,"4":9150000,"5":5490000}},{"code":"72716001","name":"그림책.동물아파트의사계절이야기6.10층큰나무가을이왔어요","cat1":"01.아동","cat2":"17. 그림책","origMonth":7,"B":{"6":0,"7":9000000,"8":4500000,"9":4500000,"10":1830000,"11":1830000},"C":{"6":0,"7":9000000,"8":4500000,"9":4500000,"10":1830000,"11":1830000}},{"code":"72931001","name":"익사이팅북스레벨3.마을이장귀똥별(가제)","cat1":"01.아동","cat2":"11. 아동문학","origMonth":4,"B":{"6":840000,"7":1680000,"8":840000,"9":840000,"10":840000,"11":1680000,"3":0,"4":8400000,"5":2520000},"C":{"6":840000,"7":1680000,"8":840000,"9":840000,"10":840000,"11":1680000,"3":0,"4":8400000,"5":2520000}},{"code":"73058001","name":"슈뻘맨의숨은생물찾기03","cat1":"02.만화","cat2":"23. 슈뻘맨","origMonth":1,"B":{"6":10080000,"7":4032000,"8":4032000,"9":4032000,"10":4032000,"11":4032000,"1":103466160,"2":7094136,"3":15120000,"4":10080000,"5":10080000},"C":{"1":103466160,"2":7094136,"3":15120000,"4":10080000,"5":10080000,"6":10080000,"7":4032000,"8":4032000,"9":4032000,"10":4032000,"11":4032000}},{"code":"73061001","name":"슈뻘맨의숨은국어찾기3","cat1":"02.만화","cat2":"23. 슈뻘맨","origMonth":3,"B":{"6":8074080,"7":3024000,"8":3024000,"9":3024000,"10":3024000,"11":3024000,"3":120960000,"4":10080000,"5":10080000},"C":{"3":120960000,"4":10080000,"5":10080000,"6":8074080,"7":3024000,"8":3024000,"9":3024000,"10":3024000,"11":3024000}},{"code":"73063001","name":"슈뻘맨의숨은직업찾기","cat1":"02.만화","cat2":"23. 슈뻘맨","origMonth":10,"B":{"10":100800000,"11":10080000},"C":{"10":100800000,"11":10080000}},{"code":"73083001","name":"처음읽는삼국지4","cat1":"02.만화","cat2":"25. 처음읽는","origMonth":3,"B":{"6":10080000,"7":15120000,"8":15120000,"9":10080000,"10":10080000,"11":14968800,"3":120960000,"4":20160000,"5":20160000},"C":{"3":120960000,"4":20160000,"5":20160000,"6":10080000,"7":15120000,"8":15120000,"9":10080000,"10":10080000,"11":14968800}},{"code":"73084001","name":"처음읽는삼국지5","cat1":"02.만화","cat2":"25. 처음읽는","origMonth":7,"B":{"7":120960000,"8":20160000,"9":20160000,"10":20160000,"11":15120000},"C":{"7":120960000,"8":20160000,"9":20160000,"10":20160000,"11":15120000}},{"code":"73136001","name":"재미난다과학.우리도억울합니다!","cat1":"01.아동","cat2":"13. 아동인문","origMonth":0,"B":{"6":840000,"7":840000,"8":840000,"9":840000,"10":840000,"11":840000,"3":840000,"4":840000,"5":840000},"C":{"6":840000,"7":840000,"8":840000,"9":840000,"10":840000,"11":840000,"3":840000,"4":840000,"5":840000}},{"code":"73137001","name":"우주대스타 다이손의 괴짜 과학 실험실01","cat1":"01.아동","cat2":"13. 아동인문","origMonth":10,"B":{"9":0,"10":14112000,"11":5040000},"C":{"9":0,"10":14112000,"11":5040000}},{"code":"73159001","name":"AI닥터스쿨3","cat1":"01.아동","cat2":"13. 아동인문","origMonth":4,"B":{"6":3024000,"7":1008000,"8":201600,"9":201600,"10":201600,"11":201600,"3":0,"4":20160000,"5":4032000},"C":{"6":3024000,"7":1008000,"8":201600,"9":201600,"10":201600,"11":201600,"3":0,"4":20160000,"5":4032000}},{"code":"73161001","name":"100일 신문 100점 독해-국제편","cat1":"01.아동","cat2":"13. 아동인문","origMonth":2,"B":{"6":3564000,"7":2376000,"8":1188000,"9":1188000,"10":3564000,"11":3564000,"3":3564000,"4":2376000,"5":1188000},"C":{"6":3564000,"7":2376000,"8":1188000,"9":1188000,"10":3564000,"11":3564000,"3":3564000,"4":2376000,"5":1188000}},{"code":"73165001","name":"인기있는초등생활02","cat1":"01.아동","cat2":"13. 아동인문","origMonth":11,"B":{"11":12096000},"C":{"11":12096000}},{"code":"73202001","name":"실험왕[시즌2]10.생명공학과유전","cat1":"02.만화","cat2":"26. 왕시리즈","origMonth":0,"B":{"6":2220000,"7":1665000,"8":1665000,"9":1665000,"10":666000,"11":666000,"0":22474725,"1":4987970,"2":5864870,"3":3330000,"4":2220000,"5":2220000},"C":{"0":22474725,"1":4987970,"2":5864870,"3":3330000,"4":2220000,"5":2220000,"6":2220000,"7":1665000,"8":1665000,"9":1665000,"10":666000,"11":666000}},{"code":"73263001","name":"에그박사의채집일기07","cat1":"02.만화","cat2":"22. 에그박사","origMonth":2,"B":{"6":1512000,"7":1512000,"8":1512000,"9":1512000,"10":1512000,"11":1421280,"2":29959104,"3":1512000,"4":1512000,"5":1512000},"C":{"2":29959104,"3":1512000,"4":1512000,"5":1512000,"6":1512000,"7":1512000,"8":1512000,"9":1512000,"10":1512000,"11":1421280}},{"code":"73265001","name":"생활밀착수학동화_응가빙수2","cat1":"01.아동","cat2":"13. 아동인문","origMonth":2,"B":{"6":1422000,"7":1422000,"8":1422000,"9":1422000,"10":1422000,"11":1422000,"3":7584000,"4":2844000,"5":1422000,"2":11003910},"C":{"2":11003910,"6":1422000,"7":1422000,"8":1422000,"9":1422000,"10":1422000,"11":1422000,"3":7584000,"4":2844000,"5":1422000}},{"code":"73266001","name":"생활밀착수학동화_응가빙수3","cat1":"01.아동","cat2":"13. 아동인문","origMonth":6,"B":{"6":14220000,"7":7584000,"8":2844000,"9":1422000,"10":1422000,"11":1422000,"5":0},"C":{"6":14220000,"7":7584000,"8":2844000,"9":1422000,"10":1422000,"11":1422000,"5":0}},{"code":"73281001","name":"안녕,나의첫사랑(상)","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":2,"B":{"2":14508648,"3":6048000,"4":3024000,"5":5040000,"6":2016000,"7":1008000,"8":2016000,"9":1008000,"10":3024000,"11":1008000},"C":{"2":14508648,"3":6048000,"4":3024000,"5":5040000,"6":2016000,"7":1008000,"8":2016000,"9":1008000,"10":3024000,"11":1008000}},{"code":"73516001","name":"미래엔그림책.해외그림책 신규 1.나는할수있어요","cat1":"01.아동","cat2":"17. 그림책","origMonth":8,"B":{"7":0,"8":7632320,"9":5185000,"10":3111000,"11":2074000},"C":{"7":0,"8":7632320,"9":5185000,"10":3111000,"11":2074000}},{"code":"73518001","name":"야흥야흥!운명해결사천호냥02.","cat1":"01.아동","cat2":"11. 아동문학","origMonth":4,"B":{"6":1680000,"7":4200000,"8":840000,"9":840000,"10":840000,"11":4200000,"3":0,"4":10920000,"5":1680000},"C":{"6":1680000,"7":4200000,"8":840000,"9":840000,"10":840000,"11":4200000,"3":0,"4":10920000,"5":1680000}},{"code":"73525001","name":"미스터리과학조사단10","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":0,"B":{"0":7149225,"1":1863685,"2":1563390,"3":435000,"4":435000,"5":435000,"6":435000,"7":435000,"8":435000,"9":261000,"10":261000,"11":261000},"C":{"0":7149225,"1":1863685,"2":1563390,"3":435000,"4":435000,"5":435000,"6":435000,"7":435000,"8":435000,"9":261000,"10":261000,"11":261000}},{"code":"73529001","name":"세계탐험36.아르헨티나에서보물찾기","cat1":"02.만화","cat2":"27. 살아/보물","origMonth":3,"B":{"6":780000,"7":780000,"3":9757800,"4":3759600,"5":780000,"8":780000,"9":390000,"10":390000,"11":780000},"C":{"3":9757800,"4":3759600,"5":780000,"6":780000,"7":780000,"8":780000,"9":390000,"10":390000,"11":780000}},{"code":"73530001","name":"야흥야흥!운명해결사천호냥03.","cat1":"01.아동","cat2":"11. 아동문학","origMonth":8,"B":{"7":0,"8":10920000,"9":1680000,"10":840000,"11":2520000},"C":{"7":0,"8":10920000,"9":1680000,"10":840000,"11":2520000}},{"code":"73531001","name":"밤의옷장루베르의상실02.쌍둥이운동화","cat1":"01.아동","cat2":"11. 아동문학","origMonth":3,"B":{"6":1680000,"7":840000,"8":1680000,"9":840000,"10":1680000,"11":840000,"3":16800000,"4":4200000,"5":1680000},"C":{"6":1680000,"7":840000,"8":1680000,"9":840000,"10":1680000,"11":840000,"3":16800000,"4":4200000,"5":1680000}},{"code":"73532001","name":"밤의옷장루베르의상실03","cat1":"01.아동","cat2":"11. 아동문학","origMonth":8,"B":{"8":16800000,"9":4200000,"10":2520000,"11":840000},"C":{"8":16800000,"9":4200000,"10":2520000,"11":840000}},{"code":"73677001","name":"흔한남매.이상한나라의고전읽기09","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":3,"B":{"6":5040000,"7":4032000,"8":3528000,"9":3528000,"10":3528000,"11":3528000,"3":80640000,"4":20160000,"5":10080000},"C":{"3":80640000,"4":20160000,"5":10080000,"6":5040000,"7":4032000,"8":3528000,"9":3528000,"10":3528000,"11":3528000}},{"code":"73678001","name":"흔한남매이상한나라의고전읽기10","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":8,"B":{"7":0,"8":75600000,"9":15120000,"10":10080000,"11":5040000},"C":{"7":0,"8":75600000,"9":15120000,"10":10080000,"11":5040000}},{"code":"73679001","name":"흔한남매.방방곡곡한국사01","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":2,"B":{"6":20160000,"7":20160000,"8":15120000,"9":10080000,"10":10080000,"11":10080000,"2":271897907,"3":70560000,"4":70560000,"5":40320000},"C":{"2":271897920,"3":70560000,"4":70560000,"5":40320000,"6":20160000,"7":20160000,"8":15120000,"9":10080000,"10":10080000,"11":10080000}},{"code":"73680001","name":"흔한남매.방방곡곡한국사2","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":10,"B":{"9":0,"10":201600000,"11":80640000},"C":{"9":0,"10":201600000,"11":80640000}},{"code":"73686001","name":"흔한남매.흔한호기심15","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":3,"B":{"6":20160000,"7":15120000,"8":10080000,"9":10080000,"10":10080000,"11":10080000,"3":231840000,"4":50400000,"5":40320000},"C":{"3":231840000,"4":50400000,"5":40320000,"6":20160000,"7":15120000,"8":10080000,"9":10080000,"10":10080000,"11":10080000}},{"code":"73687001","name":"흔한남매.흔한호기심16","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":9,"B":{"9":221760000,"10":45360000,"11":35280000},"C":{"9":221760000,"10":45360000,"11":35280000}},{"code":"73688001","name":"흔한남매.이무기04","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":5,"B":{"6":60480000,"7":50400000,"8":20160000,"9":20160000,"10":15120000,"11":15120000,"4":0,"5":302400000},"C":{"4":0,"5":302400000,"6":60480000,"7":50400000,"8":20160000,"9":20160000,"10":15120000,"11":15120000}},{"code":"73689001","name":"흔한남매.흔한게임4","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":7,"B":{"6":0,"7":181440000,"8":20160000,"9":15120000,"10":10080000,"11":10080000},"C":{"6":0,"7":181440000,"8":20160000,"9":15120000,"10":10080000,"11":10080000}},{"code":"73690001","name":"흔한남매.고민상담소01","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":9,"B":{"8":0,"9":181440000,"10":20160000,"11":15120000},"C":{"8":0,"9":181440000,"10":20160000,"11":15120000}},{"code":"73691001","name":"흔한남매.생존북01","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":6,"B":{"6":181440000,"7":20160000,"8":15120000,"9":15120000,"10":15120000,"11":13224959,"5":0},"C":{"5":0,"6":181440000,"7":20160000,"8":15120000,"9":15120000,"10":15120000,"11":13224959}},{"code":"73698001","name":"2026 신간 1","cat1":"03.단행본","cat2":"32. 북폴리오","origMonth":2,"B":{"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"C":{"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0}},{"code":"73699001","name":"2026 신간 2","cat1":"03.단행본","cat2":"33. 와이즈베리","origMonth":2,"B":{"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"C":{"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0}},{"code":"73700001","name":"2026 신간 3","cat1":"03.단행본","cat2":"32. 북폴리오","origMonth":4,"B":{"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"C":{"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0}},{"code":"73702001","name":"이제출발합니다(2026 신간4-NOW DEPARTING)","cat1":"03.단행본","cat2":"32. 북폴리오","origMonth":6,"B":{"5":0,"6":8640000,"7":21600000,"8":8640000,"9":8640000,"10":5400000,"11":3240000},"C":{"5":0,"6":8640000,"7":21600000,"8":8640000,"9":8640000,"10":5400000,"11":3240000}},{"code":"73703001","name":"파뿌리에세이(가제)_2026 신간05","cat1":"03.단행본","cat2":"32. 북폴리오","origMonth":5,"B":{"5":0,"6":0,"7":75600000,"8":43200000,"9":10800000,"10":3240000,"11":2160000},"C":{"5":0,"6":0,"7":79800000,"8":45600000,"9":11400000,"10":3420000,"11":2280000}},{"code":"73704001","name":"헝거게임05.수확의일출","cat1":"03.단행본","cat2":"32. 북폴리오","origMonth":7,"B":{"7":22800000,"8":17100000,"9":11400000,"10":5700000,"11":5700000},"C":{"7":22800000,"8":17100000,"9":11400000,"10":5700000,"11":5700000}},{"code":"73705001","name":"어른의슬픔은조용하다(2026 신간7-정현우)","cat1":"03.단행본","cat2":"32. 북폴리오","origMonth":8,"B":{"7":0,"8":0,"9":64800000,"10":21600000,"11":10800000},"C":{"7":0,"8":0,"9":64800000,"10":21600000,"11":10800000}},{"code":"73706001","name":"나는배당투자로매달성과급받는다(2026 신간8)","cat1":"03.단행본","cat2":"33. 와이즈베리","origMonth":8,"B":{"6":59400000,"7":16200000,"8":5400000,"9":5400000,"10":4320000,"11":3240000},"C":{"6":69300000,"7":18900000,"8":6300000,"9":6300000,"10":5040000,"11":3780000}},{"code":"73707001","name":"오늘나는삶을쓴다(2026 신간9)","cat1":"03.단행본","cat2":"33. 와이즈베리","origMonth":10,"B":{"9":0,"10":60000000,"11":24000000},"C":{"9":0,"10":60000000,"11":24000000}},{"code":"73708001","name":"2026 신간 10","cat1":"03.단행본","cat2":"32. 북폴리오","origMonth":9,"B":{"8":0,"9":14040000,"10":37800000,"11":12960000},"C":{"8":0,"9":14040000,"10":37800000,"11":12960000}},{"code":"73709001","name":"50세에읽는AI(2026 신간11 -The unfair advantage)","cat1":"03.단행본","cat2":"32. 북폴리오","origMonth":11,"B":{"10":0,"11":32400000},"C":{"10":0,"11":37800000}},{"code":"73711001","name":"익사이팅레벨1.모락모락동화탕<가제>","cat1":"01.아동","cat2":"11. 아동문학","origMonth":6,"B":{"6":9360000,"7":1950000,"8":780000,"9":390000,"10":780000,"11":1560000,"5":0},"C":{"6":9360000,"7":1950000,"8":780000,"9":390000,"10":780000,"11":1560000,"5":0}},{"code":"73712001","name":"스스로첫책읽기01.떼굴떼굴너구리떼구리","cat1":"01.아동","cat2":"11. 아동문학","origMonth":0,"B":{"6":780000,"7":780000,"8":2340000,"9":390000,"10":390000,"11":780000,"3":1560000,"4":780000,"5":780000,"1":15606780,"2":4991280},"C":{"1":15606780,"2":4991280,"6":780000,"7":780000,"8":2340000,"9":390000,"10":390000,"11":780000,"3":1560000,"4":780000,"5":780000}},{"code":"73713001","name":"박현숙덕질시리즈1.할머니는아이돌을좋아해<가제>","cat1":"01.아동","cat2":"11. 아동문학","origMonth":6,"B":{"8":13500000,"9":4500000,"10":2700000,"11":900000},"C":{"8":13500000,"9":4500000,"10":2700000,"11":900000}},{"code":"73716001","name":"재판으로읽는우리사회.누구의잘못일까01","cat1":"01.아동","cat2":"13. 아동인문","origMonth":7,"B":{"7":9000000,"8":900000,"9":900000,"10":1800000,"11":1800000,"1":11741520,"2":6937140},"C":{"1":11741520,"2":6937140,"7":9000000,"8":900000,"9":900000,"10":1800000,"11":1800000}},{"code":"73776001","name":"미래엔그림책.해외그림책 신규 2","cat1":"01.아동","cat2":"17. 그림책","origMonth":9,"B":{"8":0,"9":8289900,"10":3294000,"11":2196000},"C":{"8":0,"9":8289900,"10":3294000,"11":2196000}},{"code":"73777001","name":"미래엔그림책.국내신규 1.아이세움그림책","cat1":"01.아동","cat2":"17. 그림책","origMonth":11,"B":{"10":0,"11":10248000},"C":{"10":0,"11":10248000}},{"code":"73787001","name":"세계도시33.","cat1":"02.만화","cat2":"27. 살아/보물","origMonth":9,"B":{"8":0,"9":9750000,"10":3681600,"11":780000},"C":{"8":0,"9":9750000,"10":3681600,"11":780000}},{"code":"73788001","name":"슈뻘맨의숨은과학찾기08","cat1":"02.만화","cat2":"23. 슈뻘맨","origMonth":6,"B":{"6":181440000,"7":30240000,"8":30240000,"9":10080000,"10":10080000,"11":10080000,"5":0},"C":{"5":0,"6":181440000,"7":30240000,"8":30240000,"9":10080000,"10":10080000,"11":10080000}},{"code":"73790001","name":"내일은실험왕_디지털02","cat1":"02.만화","cat2":"26. 왕시리즈","origMonth":10,"B":{"9":0,"10":29060640,"11":7852320},"C":{"9":0,"10":29060640,"11":7852320}},{"code":"73791001","name":"에그박사18","cat1":"02.만화","cat2":"22. 에그박사","origMonth":4,"B":{"6":16128000,"7":16128000,"8":5040000,"9":5040000,"10":5040000,"11":5040000,"4":252000000,"5":50400000},"C":{"4":252000000,"5":50400000,"6":16128000,"7":16128000,"8":5040000,"9":5040000,"10":5040000,"11":5040000}},{"code":"73792001","name":"웃소만화13","cat1":"02.만화","cat2":"24. 웃소","origMonth":0,"B":{"6":3024000,"7":2016000,"8":2016000,"9":2016000,"10":2016000,"11":2016000,"0":60127200,"1":3021816,"2":11823000,"3":5040000,"4":3024000,"5":3024000},"C":{"0":60127200,"1":3021816,"2":11823000,"3":5040000,"4":3024000,"5":3024000,"6":3024000,"7":2016000,"8":2016000,"9":2016000,"10":2016000,"11":2016000}},{"code":"73793001","name":"웃소만화14","cat1":"02.만화","cat2":"24. 웃소","origMonth":5,"B":{"6":15120000,"7":2016000,"8":2016000,"9":2016000,"10":2016000,"11":2016000,"4":0,"5":50400000},"C":{"4":0,"5":50400000,"6":15120000,"7":2016000,"8":2016000,"9":2016000,"10":2016000,"11":2016000}},{"code":"73794001","name":"웃소만화15","cat1":"02.만화","cat2":"24. 웃소","origMonth":11,"B":{"10":0,"11":55440000},"C":{"10":0,"11":55440000}},{"code":"73795001","name":"흔한남매.흔한남매22","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":3,"B":{"6":40320000,"7":30240000,"8":15120000,"9":15120000,"10":15120000,"11":15120000,"3":1149120000,"4":70560000,"5":70560000},"C":{"3":1149120000,"4":70560000,"5":70560000,"6":40320000,"7":30240000,"8":15120000,"9":15120000,"10":15120000,"11":15120000}},{"code":"73796001","name":"웃소환생학교요괴반08","cat1":"02.만화","cat2":"24. 웃소","origMonth":6,"B":{"6":70560000,"7":20160000,"8":10080000,"9":5040000,"10":5040000,"11":4969440,"5":0},"C":{"5":0,"6":70560000,"7":20160000,"8":10080000,"9":5040000,"10":5040000,"11":4969440}},{"code":"73797001","name":"처음읽는그리스로마신화14","cat1":"02.만화","cat2":"25. 처음읽는","origMonth":1,"B":{"6":30240000,"7":20160000,"8":20160000,"9":10080000,"10":10080000,"11":20160000,"2":115029768,"3":30240000,"4":25200000,"5":30240000},"C":{"2":115029768,"3":30240000,"4":25200000,"5":30240000,"6":30240000,"7":20160000,"8":20160000,"9":10080000,"10":10080000,"11":20160000}},{"code":"73936001","name":"안녕, 나의 첫사랑 : 하","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":5,"B":{"4":0,"5":21000000,"6":6300000,"7":5250000,"8":1050000,"9":3150000,"10":1050000,"11":1050000},"C":{"4":0,"5":21000000,"6":6300000,"7":5250000,"8":1050000,"9":3150000,"10":1050000,"11":1050000}},{"code":"73937001","name":"전문>거인의공부","cat1":"03.단행본","cat2":"33. 와이즈베리","origMonth":0,"B":{"0":37813000,"1":15909200,"2":12844200,"3":4800000,"4":4200000,"5":3600000,"6":3600000,"7":2400000,"8":1800000,"9":1800000,"10":1800000,"11":1800000},"C":{"0":37813000,"1":15909200,"2":12844200,"3":4800000,"4":4200000,"5":3600000,"6":3600000,"7":2400000,"8":1800000,"9":1800000,"10":1800000,"11":1800000}},{"code":"73954001","name":"흔한남매.흔한국어01","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":4,"B":{"6":15120000,"7":15120000,"8":15120000,"9":13224959,"10":13224959,"11":13224959,"4":181440000,"5":20160000},"C":{"4":181440000,"5":20160000,"6":15120000,"7":15120000,"8":15120000,"9":13224959,"10":13224959,"11":13224959}},{"code":"73955001","name":"흔한남매 흔한국어02","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":10,"B":{"9":0,"10":181440000,"11":20160000},"C":{"9":0,"10":181440000,"11":20160000}},{"code":"73974001","name":"유부곰도시락집01<가제>","cat1":"01.아동","cat2":"11. 아동문학","origMonth":7,"B":{"6":0,"7":10920000,"8":4200000,"9":1680000,"10":2520000,"11":6720000},"C":{"6":0,"7":10920000,"8":4200000,"9":1680000,"10":2520000,"11":6720000}},{"code":"73985001","name":"슈뻘맨의숨은범인찾기3","cat1":"02.만화","cat2":"23. 슈뻘맨","origMonth":8,"B":{"7":0,"8":100800000,"9":10080000,"10":10080000,"11":3024000},"C":{"7":0,"8":100800000,"9":10080000,"10":10080000,"11":3024000}},{"code":"74054001","name":"그림책.천둥해적단01(가제)","cat1":"01.아동","cat2":"11. 아동문학","origMonth":4,"B":{"6":900000,"7":1350000,"8":450000,"9":450000,"10":450000,"11":900000,"3":0,"4":9000000,"5":1800000},"C":{"6":900000,"7":1350000,"8":450000,"9":450000,"10":450000,"11":900000,"3":0,"4":9000000,"5":1800000}},{"code":"74100001","name":"김지윤의 글로벌 리더 프로젝트01","cat1":"01.아동","cat2":"13. 아동인문","origMonth":8,"B":{"8":40320000,"9":10080000,"10":7066080,"11":8064000},"C":{"8":40320000,"9":10080000,"10":7066080,"11":8064000}},{"code":"74101001","name":"김지윤의 글로벌 리더 프로젝트02","cat1":"01.아동","cat2":"13. 아동인문","origMonth":11,"B":{"11":40320000},"C":{"11":40320000}},{"code":"74116001","name":"익사이팅북스레벨3.호랑이를삼킨아이,모란이","cat1":"01.아동","cat2":"11. 아동문학","origMonth":1,"B":{"6":840000,"7":1680000,"8":420000,"9":420000,"10":840000,"11":1680000,"1":8726900,"2":4516400,"3":840000,"4":1260000,"5":420000},"C":{"1":8726900,"2":4516400,"6":840000,"7":1680000,"8":420000,"9":420000,"10":840000,"11":1680000,"3":840000,"4":1260000,"5":420000}},{"code":"74117001","name":"익사이팅북스레벨2.오른손은비밀이야(가제)","cat1":"01.아동","cat2":"11. 아동문학","origMonth":10,"B":{"10":7800000,"11":2340000},"C":{"10":7800000,"11":2340000}},{"code":"74121001","name":"처음읽는한국사1","cat1":"02.만화","cat2":"25. 처음읽는","origMonth":7,"B":{"6":0,"7":60480000,"8":20160000,"9":10080000,"10":10080000,"11":10080000},"C":{"6":0,"7":60480000,"8":20160000,"9":10080000,"10":10080000,"11":10080000}},{"code":"74140001","name":"에그박사19","cat1":"02.만화","cat2":"22. 에그박사","origMonth":8,"B":{"7":0,"8":246960000,"9":50400000,"10":15120000,"11":15120000},"C":{"7":0,"8":246960000,"9":50400000,"10":15120000,"11":15120000}},{"code":"74141001","name":"에그박사20","cat1":"02.만화","cat2":"22. 에그박사","origMonth":11,"B":{"11":234864000},"C":{"11":234864000}},{"code":"74147001","name":"어뉴클래식03.동물농장","cat1":"01.아동","cat2":"11. 아동문학","origMonth":1,"B":{"6":1680000,"7":2520000,"8":840000,"9":840000,"10":840000,"11":1680000,"3":3360000,"4":4200000,"5":2520000,"2":11897900},"C":{"2":11897900,"6":1680000,"7":2520000,"8":840000,"9":840000,"10":840000,"11":1680000,"3":3360000,"4":4200000,"5":2520000}},{"code":"74148001","name":"어뉴클래식04.프랑켄슈타인","cat1":"01.아동","cat2":"11. 아동문학","origMonth":9,"B":{"9":12600000,"10":5040000,"11":4200000},"C":{"9":12600000,"10":5040000,"11":4200000}},{"code":"74153001","name":"익사이팅북스레벨2.홍살문너머동생이사라졌다","cat1":"01.아동","cat2":"11. 아동문학","origMonth":3,"B":{"7":7800000,"8":1560000,"9":780000,"10":780000,"11":1560000},"C":{"7":7800000,"8":1560000,"9":780000,"10":780000,"11":1560000}},{"code":"74161001","name":"퀀텀 레볼루션","cat1":"03.단행본","cat2":"33. 와이즈베리","origMonth":5,"B":{"5":10140000,"6":18720000,"7":7800000,"8":6240000,"9":4680000,"10":4680000,"11":4680000},"C":{"5":10140000,"6":18720000,"7":7800000,"8":6240000,"9":4680000,"10":4680000,"11":4680000}},{"code":"74163001","name":"전문>비교해방","cat1":"03.단행본","cat2":"33. 와이즈베리","origMonth":1,"B":{"1":28636938,"2":7444998,"3":4752000,"4":4158000,"5":3564000,"6":3564000,"7":2376000,"8":2376000,"9":2376000,"10":2376000,"11":1782000},"C":{"1":28636938,"2":7444998,"3":4752000,"4":4158000,"5":3564000,"6":3564000,"7":2376000,"8":2376000,"9":2376000,"10":2376000,"11":1782000}},{"code":"74182001","name":"귀염뿍즈.코뭉치와치릿(가제)","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":11,"B":{"10":0,"11":26250000},"C":{"10":0,"11":26250000}},{"code":"74282001","name":"추리천재엉덩이탐정A3.대결!괴도아카데미와달빛사건","cat1":"01.아동","cat2":"11. 아동문학","origMonth":2,"B":{"6":4500000,"7":6300000,"8":2700000,"9":900000,"10":1800000,"11":2700000,"2":51198750,"3":18000000,"4":10602000,"5":4500000},"C":{"2":51198750,"6":4500000,"7":6300000,"8":2700000,"9":900000,"10":1800000,"11":2700000,"3":18000000,"4":10602000,"5":4500000}},{"code":"74283001","name":"스스로첫책읽기02.","cat1":"01.아동","cat2":"11. 아동문학","origMonth":5,"B":{"6":9360000,"7":2340000,"8":1560000,"9":780000,"10":390000,"11":1560000,"4":0},"C":{"6":9360000,"7":2340000,"8":1560000,"9":780000,"10":390000,"11":1560000,"4":0}},{"code":"74285001","name":"추리천재엉덩이탐정15","cat1":"01.아동","cat2":"11. 아동문학","origMonth":9,"B":{"8":0,"9":63000000,"10":18000000,"11":9000000},"C":{"8":0,"9":63000000,"10":18000000,"11":9000000}},{"code":"74286001","name":"아동문학_신규대형작가01","cat1":"01.아동","cat2":"11. 아동문학","origMonth":10,"B":{"9":0,"10":9000000,"11":9000000},"C":{"9":0,"10":9000000,"11":9000000}},{"code":"74287001","name":"윔피키드21","cat1":"01.아동","cat2":"11. 아동문학","origMonth":11,"B":{"10":0,"11":47400000},"C":{"10":0,"11":47400000}},{"code":"74288001","name":"스마트폰을 조심해","cat1":"01.아동","cat2":"13. 아동인문","origMonth":5,"B":{"6":900000,"7":900000,"8":900000,"9":900000,"10":900000,"11":900000,"4":0,"5":8100000},"C":{"6":900000,"7":900000,"8":900000,"9":900000,"10":900000,"11":900000,"4":0,"5":8100000}},{"code":"74289001","name":"열세살에 마음부자가 된 키라1","cat1":"01.아동","cat2":"13. 아동인문","origMonth":7,"B":{"6":0,"7":19152000,"8":3024000,"9":3024000,"10":4032000,"11":4032000},"C":{"6":0,"7":19152000,"8":3024000,"9":3024000,"10":4032000,"11":4032000}},{"code":"74291001","name":"청소년을 위한 자기계발05","cat1":"01.아동","cat2":"13. 아동인문","origMonth":7,"B":{"6":0,"7":15300000,"8":900000,"9":1800000,"10":2700000,"11":2700000},"C":{"6":0,"7":15300000,"8":900000,"9":1800000,"10":2700000,"11":2700000}},{"code":"74293001","name":"지방 창생(지방 소멸 2)","cat1":"03.단행본","cat2":"33. 와이즈베리","origMonth":3,"B":{"3":8400000,"4":11400000,"5":7200000,"6":4800000,"7":4800000,"8":2400000,"9":2400000,"10":2400000,"11":2400000},"C":{"3":8400000,"4":11400000,"5":7200000,"6":4800000,"7":4800000,"8":2400000,"9":2400000,"10":2400000,"11":2400000}},{"code":"74294001","name":"내일은발명왕45","cat1":"02.만화","cat2":"26. 왕시리즈","origMonth":5,"B":{"6":9435000,"7":6660000,"8":1110000,"9":1110000,"10":1665000,"11":1665000,"5":24420000},"C":{"5":24420000,"6":9435000,"7":6660000,"8":1110000,"9":1110000,"10":1665000,"11":1665000}},{"code":"74295001","name":"내일은실험왕_디지털01","cat1":"02.만화","cat2":"26. 왕시리즈","origMonth":6,"B":{"6":28859040,"7":7852320,"8":3024000,"9":2016000,"10":1985760,"11":4908960,"5":0},"C":{"5":0,"6":28859040,"7":7852320,"8":3024000,"9":2016000,"10":1985760,"11":4908960}},{"code":"74296001","name":"서바이벌86.위험생물세계에서 살아남기2","cat1":"02.만화","cat2":"27. 살아/보물","origMonth":2,"B":{"6":1680000,"7":1680000,"3":4200000,"4":2520000,"5":1680000,"8":1680000,"9":1260000,"10":1260000,"11":1680000},"C":{"3":4200000,"4":2520000,"5":1680000,"6":1680000,"7":1680000,"8":1680000,"9":1260000,"10":1260000,"11":1680000}},{"code":"74297001","name":"서바이벌(87)71.과자공장에서살아남기(구번호87.)","cat1":"02.만화","cat2":"27. 살아/보물","origMonth":6,"B":{"6":16800000,"7":4200000,"5":0,"8":2520000,"9":1680000,"10":1680000,"11":1680000},"C":{"5":0,"6":16800000,"7":4200000,"8":2520000,"9":1680000,"10":1680000,"11":1680000}},{"code":"74298001","name":"서바이벌88.","cat1":"02.만화","cat2":"27. 살아/보물","origMonth":10,"B":{"9":0,"10":16800000,"11":2520000},"C":{"9":0,"10":16800000,"11":2520000}},{"code":"74300001","name":"신규만화01(귀염뿍즈).죽음이무서운작은사신치니카미","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":3,"B":{"3":26250000,"4":10500000,"5":5250000,"6":2100000,"7":2100000,"8":2100000,"9":2100000,"10":2100000,"11":2100000},"C":{"3":26250000,"4":10500000,"5":5250000,"6":2100000,"7":2100000,"8":2100000,"9":2100000,"10":2100000,"11":2100000}},{"code":"74301001","name":"신규만화02(귀염뿍즈).찌그러진누룽쥐(가제)","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":6,"B":{"5":0,"6":26250000,"7":10500000,"8":5250000,"9":2100000,"10":2100000,"11":2100000},"C":{"5":0,"6":26250000,"7":10500000,"8":5250000,"9":2100000,"10":2100000,"11":2100000}},{"code":"74302001","name":"신규만화03(귀염뿍즈)","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":10,"B":{"9":0,"10":26250000,"11":10500000},"C":{"9":0,"10":26250000,"11":10500000}},{"code":"74303001","name":"신규만화04(미정)","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":8,"B":{"7":0,"8":100800000,"9":30895200,"10":20160000,"11":10080000},"C":{"7":0,"8":100800000,"9":30895200,"10":20160000,"11":10080000}},{"code":"74304001","name":"신규만화05(미정)","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":11,"B":{"10":0,"11":90720000},"C":{"10":0,"11":90720000}},{"code":"74305001","name":"[신규2030만화]만화에세이_천국에서의 생활은 어떻습니까","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":8,"B":{"7":0,"8":25200000,"9":10080000,"10":5040000,"11":2016000},"C":{"7":0,"8":25200000,"9":10080000,"10":5040000,"11":2016000}},{"code":"74306001","name":"[신규아동만화]100일 생존 01","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":10,"B":{"9":0,"10":100800000,"11":70560000},"C":{"9":0,"10":100800000,"11":70560000}},{"code":"74307001","name":"신규만화08(미정)","cat1":"02.만화","cat2":"29. 기타(만화)","origMonth":11,"B":{"10":0,"11":100800000},"C":{"10":0,"11":100800000}},{"code":"74308001","name":"흔한남매.흔한남매23","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":8,"B":{"7":0,"8":1058400000,"9":90720000,"10":70560000,"11":60480000},"C":{"7":0,"8":1058400000,"9":90720000,"10":70560000,"11":60480000}},{"code":"74309001","name":"흔한남매24","cat1":"02.만화","cat2":"21. 흔한남매","origMonth":11,"B":{"10":0,"11":1058400000},"C":{"10":0,"11":1058400000}},{"code":"74311001","name":"처음읽는그리스로마신화15","cat1":"02.만화","cat2":"25. 처음읽는","origMonth":5,"B":{"6":54694080,"7":50400000,"8":25200000,"9":20160000,"10":20160000,"11":27921600,"5":131040000},"C":{"5":131040000,"6":54694080,"7":50400000,"8":25200000,"9":20160000,"10":20160000,"11":27921600}},{"code":"74312001","name":"처음읽는그리스로마신화16","cat1":"02.만화","cat2":"25. 처음읽는","origMonth":9,"B":{"9":131040000,"10":54825120,"11":50400000},"C":{"9":131040000,"10":54825120,"11":50400000}},{"code":"74313001","name":"웃소환생학교요괴반09","cat1":"02.만화","cat2":"24. 웃소","origMonth":11,"B":{"11":70560000},"C":{"11":70560000}},{"code":"74604001","name":"퀵실버(Quicksilver)","cat1":"03.단행본","cat2":"32. 북폴리오","origMonth":11,"B":{"11":18000000},"C":{"11":18000000}}];
+
+// ── 월 조정 상태 & 델타 계산 ──────────────────────────────
+const monthAdjust = {}; // {code: newMonthIdx(0-based)}
+let DELTA = {};          // {월label: {cat1: {cat2: {attr: delta}}}}
+
+function applyDelta(월label, cat1, cat2, attr, amount) {
+  if (!DELTA[월label]) DELTA[월label] = {};
+  if (!DELTA[월label][cat1]) DELTA[월label][cat1] = {};
+  if (!DELTA[월label][cat1][cat2]) DELTA[월label][cat1][cat2] = {};
+  DELTA[월label][cat1][cat2][attr] = (DELTA[월label][cat1][cat2][attr] || 0) + amount;
+}
+
+function rebuildDelta() {
+  DELTA = {};
+  SINGAN.forEach(book => {
+    const adjustment = monthAdjust[book.code];
+    if (adjustment === undefined) return;
+
+    ['B','C'].forEach(attr => {
+      const monthly = book[attr];
+      const attrKey = attr === 'B' ? 'B.보수적추정' : 'C.정가인상추정';
+
+      // 출간취소: 해당 도서 매출 전부 제거
+      if (adjustment === 'cancel') {
+        Object.entries(monthly).forEach(([mStr, amt]) => {
+          if (amt === 0) return;
+          const idx = parseInt(mStr);
+          if (idx >= 0 && idx <= 11)
+            applyDelta(MONTHS[idx], book.cat1, book.cat2, attrKey, -amt);
+        });
+        return;
+      }
+
+      const newMonth = adjustment;
+      if (newMonth === book.origMonth) return;
+      const delay = newMonth - book.origMonth;
+
+      const entries = Object.entries(monthly)
+        .map(([k, v]) => [parseInt(k), v])
+        .filter(([, v]) => v !== 0);
+      if (entries.length === 0) return;
+
+      // ① 기존 월 제거 + 이동된 월에 추가
+      entries.forEach(([origIdx, amt]) => {
+        if (origIdx >= 0 && origIdx <= 11)
+          applyDelta(MONTHS[origIdx], book.cat1, book.cat2, attrKey, -amt);
+        const newIdx = origIdx + delay;
+        if (newIdx >= 0 && newIdx <= 11)
+          applyDelta(MONTHS[newIdx], book.cat1, book.cat2, attrKey, amt);
+      });
+
+      // ② 앞당김: 마지막 달 매출을 추가된 개월수만큼 연말에 ADD
+      if (delay < 0) {
+        const lastIdx = Math.max(...entries.map(([idx]) => idx));
+        const lastAmt = monthly[String(lastIdx)] || 0;
+        if (lastAmt > 0) {
+          const gainStart = Math.max(0, lastIdx + delay + 1);
+          const gainEnd   = Math.min(11, lastIdx);
+          for (let m = gainStart; m <= gainEnd; m++) {
+            applyDelta(MONTHS[m], book.cat1, book.cat2, attrKey, lastAmt);
+          }
+        }
+      }
+    });
+  });
+}
+
+// ── Drawer 로직 ─────────────────────────────────────────
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawerOverlay').classList.add('open');
+  renderDrawer();
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawerOverlay').classList.remove('open');
+}
+
+function changeMonth(code, newVal) {
+  const book = SINGAN.find(b => b.code === code);
+  if (!book) { console.error('book not found:', code); return; }
+
+  if (newVal === 'cancel') {
+    monthAdjust[code] = 'cancel';
+  } else {
+    const newM = parseInt(newVal);
+    if (newM === book.origMonth) delete monthAdjust[code];
+    else monthAdjust[code] = newM;
+  }
+
+  rebuildDelta();
+  const MN = MONTHS;
+  const label = newVal === 'cancel' ? '출간취소' : `${MN[book.origMonth]}→${MN[parseInt(newVal)]}`;
+  showToast(`📅 ${book.name.slice(0,15)}… ${label}`);
+  updateBadge();
+  render();
+  renderDrawer();
+}
+
+function showToast(msg) {
+  let t = document.getElementById('singanToast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'singanToast';
+    t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1f6feb;color:#fff;padding:8px 18px;border-radius:20px;font-size:12px;font-family:Noto Sans KR,sans-serif;z-index:9999;transition:opacity 0.3s;';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.opacity = '1';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => { t.style.opacity = '0'; }, 2500);
+}
+
+function resetAllMonths() {
+  Object.keys(monthAdjust).forEach(k => delete monthAdjust[k]);
+  rebuildDelta();
+  updateBadge();
+  render();
+  renderDrawer();
+}
+
+function updateBadge() {
+  const cnt = Object.keys(monthAdjust).length;
+  const badge = document.getElementById('singanBtnBadge');
+  const drawerBadge = document.getElementById('drawerBadge');
+  if (cnt > 0) {
+    badge.textContent = cnt; badge.classList.add('visible');
+    drawerBadge.textContent = cnt + '건 변경'; drawerBadge.classList.add('visible');
+  } else {
+    badge.classList.remove('visible');
+    drawerBadge.classList.remove('visible');
+  }
+}
+
+function renderDrawer() {
+  const q = (document.getElementById('drawerSearch').value || '').trim().toLowerCase();
+  const body = document.getElementById('drawerBody');
+  const MN = ['01월','02월','03월','04월','05월','06월','07월','08월','09월','10월','11월','12월'];
+
+  // 그룹화: cat1 → cat2 → books
+  const grouped = {};
+  SINGAN.forEach(book => {
+    if (q && !book.name.toLowerCase().includes(q)) return;
+    if (!grouped[book.cat1]) grouped[book.cat1] = {};
+    if (!grouped[book.cat1][book.cat2]) grouped[book.cat1][book.cat2] = [];
+    grouped[book.cat1][book.cat2].push(book);
+  });
+
+  let html = '';
+  Object.keys(grouped).sort().forEach(cat1 => {
+    html += `<div class="drawer-group-header">${cat1}</div>`;
+    Object.keys(grouped[cat1]).sort().forEach(cat2 => {
+      html += `<div class="drawer-subgroup">${cat2}</div>`;
+      grouped[cat1][cat2].forEach(book => {
+        const adj = monthAdjust[book.code];
+        const isCancelled = adj === 'cancel';
+        const isChanged = adj !== undefined;
+        const curMonth = (!isCancelled && adj !== undefined) ? adj : book.origMonth;
+        const opts = MN.map((m,i) =>
+          `<option value="${i}" ${i===curMonth && !isCancelled ? 'selected':''}>${m}</option>`
+        ).join('') + `<option value="cancel" ${isCancelled ? 'selected':''}  style="color:#f85149;">── 출간취소</option>`;
+        const rowClass = isCancelled ? 'drawer-book cancelled' : isChanged ? 'drawer-book changed' : 'drawer-book';
+        const selectClass = isCancelled ? 'month-select cancelled-select' : 'month-select';
+        html += `<div class="${rowClass}">
+          <span class="drawer-book-name" title="${book.name}">${isCancelled ? '🚫 ' : ''}${book.name}</span>
+          <span class="drawer-month-orig">${MN[book.origMonth]}</span>
+          <span class="drawer-arrow">→</span>
+          <select class="${selectClass}" onchange="changeMonth('${book.code}',this.value)">${opts}</select>
+        </div>`;
+      });
+    });
+  });
+
+  if (!html) html = '<div style="padding:20px 18px;color:var(--text3);font-size:12px;">검색 결과가 없습니다.</div>';
+  body.innerHTML = html;
+}
+
+
+// ─────────────────────────────────────────────────────────
+// F. 현재시점추정 데이터 (paste from Google Sheets)
+// FDATA[월] = { 대분류: { 중분류: 원단위값 } }
+// ─────────────────────────────────────────────────────────
+let FDATA = {};
+
+// 매핑 규칙
+const F_CATS = ['01.아동', '02.만화', '03.단행본', '98.전자책', '99.저작권'];
+const F_MID_MAP = {
+  // 정확명 → [HTML 대분류, HTML 중분류]
+  '아동문학': ['01.아동', '11. 아동문학'],
+  '문학-명작논술': ['01.아동', '11. 아동문학'],   // ADD
+  '아동인문': ['01.아동', '13. 아동인문'],
+  '그림책': ['01.아동', '17. 그림책'],
+
+  '흔한남매': ['02.만화', '21. 흔한남매'],
+  '에그박사': ['02.만화', '22. 에그박사'],
+  '슈뻘맨': ['02.만화', '23. 슈뻘맨'],
+  '웃소': ['02.만화', '24. 웃소'],
+  '처음읽는': ['02.만화', '25. 처음읽는'],
+  '왕시리즈': ['02.만화', '26. 왕시리즈'],
+  '살아/보물': ['02.만화', '27. 살아/보물'],
+  '기타(만화)': ['02.만화', '29. 기타(만화)'],
+  '만화백과': ['02.만화', '29. 기타(만화)'],     // ADD
+
+  '북폴리오': ['03.단행본', '32. 북폴리오'],
+  '와이즈베리': ['03.단행본', '33. 와이즈베리'],
+  '마이클샌델': ['03.단행본', '33. 와이즈베리'], // ADD
+
+  '전자책': ['98.전자책', '98.전자책'],
+  '저작권': ['99.저작권', '99.저작권'],
+};
+
+// 입력 텍스트의 키(중분류명)를 정규화: "11. 아동문학" → "아동문학"
+function normalizeF(s) {
+  if (!s) return '';
+  return String(s).trim().replace(/^\d+\.\s*/, '').replace(/\s+/g, '').toLowerCase();
+}
+
+const F_MID_MAP_NORM = {};
+Object.keys(F_MID_MAP).forEach(k => { F_MID_MAP_NORM[normalizeF(k)] = F_MID_MAP[k]; });
+
+// ── 전년실적 데이터 (2025년 원 단위) ─────────────────────
+const PREV = {"01월":{"01.아동":{"11. 아동문학":292127306,"13. 아동인문":77403515,"17. 그림책":14680811},"02.만화":{"21. 흔한남매":924155088,"22. 에그박사":476612592,"23. 슈뻘맨":190728964,"24. 웃소":157761610,"25. 처음읽는":255990924,"26. 왕시리즈":201667159,"27. 살아/보물":71819225,"29. 기타(만화)":69710536},"03.단행본":{"32. 북폴리오":132446721,"33. 와이즈베리":87249736},"98.전자책":{"98.전자책":32384905},"99.저작권":{"99.저작권":209958406}},"02월":{"01.아동":{"11. 아동문학":137429238,"13. 아동인문":95138098,"17. 그림책":11959564},"02.만화":{"21. 흔한남매":816249191,"22. 에그박사":165143674,"23. 슈뻘맨":93660887,"24. 웃소":68685767,"25. 처음읽는":198539389,"26. 왕시리즈":248459661,"27. 살아/보물":66455848,"29. 기타(만화)":139731873},"03.단행본":{"32. 북폴리오":118803371,"33. 와이즈베리":63477413},"98.전자책":{"98.전자책":31521182},"99.저작권":{"99.저작권":80484648}},"03월":{"01.아동":{"11. 아동문학":134932896,"13. 아동인문":174951914,"17. 그림책":35095436},"02.만화":{"21. 흔한남매":584315112,"22. 에그박사":100231749,"23. 슈뻘맨":378134305,"24. 웃소":86496263,"25. 처음읽는":131311094,"26. 왕시리즈":121523885,"27. 살아/보물":54566913,"29. 기타(만화)":51822962},"03.단행본":{"32. 북폴리오":75061996,"33. 와이즈베리":131026095},"98.전자책":{"98.전자책":30168355},"99.저작권":{"99.저작권":19582744}},"04월":{"01.아동":{"11. 아동문학":238018919,"13. 아동인문":140672080,"17. 그림책":59871788},"02.만화":{"21. 흔한남매":1778540323,"22. 에그박사":200148442,"23. 슈뻘맨":290985405,"24. 웃소":70107084,"25. 처음읽는":207414917,"26. 왕시리즈":237289205,"27. 살아/보물":56791525,"29. 기타(만화)":65353437},"03.단행본":{"32. 북폴리오":76194660,"33. 와이즈베리":182707937},"98.전자책":{"98.전자책":27469926},"99.저작권":{"99.저작권":701339695}},"05월":{"01.아동":{"11. 아동문학":130720466,"13. 아동인문":161715237,"17. 그림책":26194535},"02.만화":{"21. 흔한남매":551020495,"22. 에그박사":396477809,"23. 슈뻘맨":349261027,"24. 웃소":48470874,"25. 처음읽는":131073929,"26. 왕시리즈":105361219,"27. 살아/보물":48456204,"29. 기타(만화)":50902935},"03.단행본":{"32. 북폴리오":146424723,"33. 와이즈베리":124694197},"98.전자책":{"98.전자책":28633243},"99.저작권":{"99.저작권":36520746}},"06월":{"01.아동":{"11. 아동문학":106143213,"13. 아동인문":139581117,"17. 그림책":25403609},"02.만화":{"21. 흔한남매":497937144,"22. 에그박사":138538353,"23. 슈뻘맨":180280200,"24. 웃소":98824390,"25. 처음읽는":276680666,"26. 왕시리즈":82578706,"27. 살아/보물":30125084,"29. 기타(만화)":40283245},"03.단행본":{"32. 북폴리오":97244398,"33. 와이즈베리":79425500},"98.전자책":{"98.전자책":30375441},"99.저작권":{"99.저작권":95452314}},"07월":{"01.아동":{"11. 아동문학":164422430,"13. 아동인문":133617849,"17. 그림책":36373680},"02.만화":{"21. 흔한남매":890337723,"22. 에그박사":245809136,"23. 슈뻘맨":149421970,"24. 웃소":63055474,"25. 처음읽는":226422771,"26. 왕시리즈":51403843,"27. 살아/보물":78190474,"29. 기타(만화)":202611875},"03.단행본":{"32. 북폴리오":144130677,"33. 와이즈베리":97947477},"98.전자책":{"98.전자책":29674991},"99.저작권":{"99.저작권":81982736}},"08월":{"01.아동":{"11. 아동문학":120713221,"13. 아동인문":113580924,"17. 그림책":24402902},"02.만화":{"21. 흔한남매":599171084,"22. 에그박사":182685407,"23. 슈뻘맨":264567568,"24. 웃소":53463293,"25. 처음읽는":219197424,"26. 왕시리즈":79973054,"27. 살아/보물":24240798,"29. 기타(만화)":85304387},"03.단행본":{"32. 북폴리오":118805869,"33. 와이즈베리":64551743},"98.전자책":{"98.전자책":30879377},"99.저작권":{"99.저작권":130823261}},"09월":{"01.아동":{"11. 아동문학":144444506,"13. 아동인문":134284632,"17. 그림책":48732285},"02.만화":{"21. 흔한남매":1834562531,"22. 에그박사":450371086,"23. 슈뻘맨":110040798,"24. 웃소":81172137,"25. 처음읽는":181411016,"26. 왕시리즈":83126036,"27. 살아/보물":45428172,"29. 기타(만화)":92683861},"03.단행본":{"32. 북폴리오":90266887,"33. 와이즈베리":103863723},"98.전자책":{"98.전자책":29900018},"99.저작권":{"99.저작권":220442993}},"10월":{"01.아동":{"11. 아동문학":124666701,"13. 아동인문":89326694,"17. 그림책":13057801},"02.만화":{"21. 흔한남매":641580032,"22. 에그박사":300555594,"23. 슈뻘맨":99577266,"24. 웃소":52798543,"25. 처음읽는":184082386,"26. 왕시리즈":71838176,"27. 살아/보물":91247314,"29. 기타(만화)":49533764},"03.단행본":{"32. 북폴리오":60770327,"33. 와이즈베리":205843383},"98.전자책":{"98.전자책":32890370},"99.저작권":{"99.저작권":1057558698}},"11월":{"01.아동":{"11. 아동문학":179429727,"13. 아동인문":143989514,"17. 그림책":46165450},"02.만화":{"21. 흔한남매":676884396,"22. 에그박사":423857029,"23. 슈뻘맨":296290102,"24. 웃소":42767066,"25. 처음읽는":137640096,"26. 왕시리즈":125132228,"27. 살아/보물":132426788,"29. 기타(만화)":35421368},"03.단행본":{"32. 북폴리오":80191820,"33. 와이즈베리":107907747},"98.전자책":{"98.전자책":30172752},"99.저작권":{"99.저작권":598794076}},"12월":{"01.아동":{"11. 아동문학":428760067,"13. 아동인문":170500980,"17. 그림책":26216354},"02.만화":{"21. 흔한남매":2887297759,"22. 에그박사":335797825,"23. 슈뻘맨":177104510,"24. 웃소":122312783,"25. 처음읽는":209753157,"26. 왕시리즈":182036682,"27. 살아/보물":77652436,"29. 기타(만화)":103459904},"03.단행본":{"32. 북폴리오":115155727,"33. 와이즈베리":71515272},"98.전자책":{"98.전자책":26962214},"99.저작권":{"99.저작권":609423937}}};
+
+function getValPrev(months, 대, 중) {
+  let sum = 0;
+  months.forEach(m => { sum += PREV[m]?.[대]?.[중] || 0; });
+  return sum;
+}
+
+function getValPrevTotal(months) {
+  let sum = 0;
+  months.forEach(m => {
+    const mp = PREV[m]; if (!mp) return;
+    Object.keys(mp).forEach(d => { Object.keys(mp[d]).forEach(c => { sum += mp[d][c] || 0; }); });
+  });
+  return sum;
+}
+
+function getValF(months, 대, 중) {
+  let sum = 0;
+  months.forEach(m => {
+    const v = FDATA[m]?.[대]?.[중] || 0;
+    sum += v;
+  });
+  return sum;
+}
+function getValFTotal(months) {
+  let sum = 0;
+  months.forEach(m => {
+    const mp = FDATA[m]; if (!mp) return;
+    Object.keys(mp).forEach(d => {
+      Object.keys(mp[d]).forEach(c => { sum += mp[d][c] || 0; });
+    });
+  });
+  return sum;
+}
+
+function toggleFPopup() {
+  const popup = document.getElementById('fPopup');
+  const overlay = document.getElementById('fPopupOverlay');
+  const isOpen = popup.style.display !== 'none';
+  popup.style.display = isOpen ? 'none' : 'block';
+  overlay.style.display = isOpen ? 'none' : 'block';
+}
+function closeFPopup() {
+  document.getElementById('fPopup').style.display = 'none';
+  document.getElementById('fPopupOverlay').style.display = 'none';
+}
+function togglePasteBox() { toggleFPopup(); }
+
+function parseNum(s) {
+  if (s === undefined || s === null) return 0;
+  const cleaned = String(s).replace(/[\s,]/g, '').trim();
+  if (cleaned === '' || cleaned === '-') return 0;
+  const n = parseFloat(cleaned);
+  return isNaN(n) ? 0 : n;
+}
+
+function applyPasted() {
+  const txt = document.getElementById('pasteArea').value || '';
+  if (!txt.trim()) { setPasteStatus('❌ 입력값이 비어 있습니다.', 'red'); return; }
+
+  // 줄 단위 파싱 (탭 또는 다중 공백)
+  const lines = txt.split(/\r?\n/).map(l => l.replace(/\t+/g, '\t').trim()).filter(l => l.length > 0);
+
+  // 헤더 식별 + 월 컬럼 위치 찾기
+  let monthCols = null; // {idx_in_row -> '01월'} : 절대 컬럼 인덱스
+  let headerIdx = -1;
+  for (let i = 0; i < lines.length; i++) {
+    const cells = lines[i].split('\t');
+    const found = {};
+    cells.forEach((c, idx) => {
+      const m = c.trim().match(/^(0?[1-9]|1[0-2])\s*월$/);
+      if (m) {
+        const mm = String(parseInt(m[1], 10)).padStart(2, '0') + '월';
+        found[idx] = mm;
+      }
+    });
+    if (Object.keys(found).length >= 6) {
+      monthCols = found; headerIdx = i; break;
+    }
+  }
+
+  // 헤더가 없어도 진행: 기본 가정 (대분류, 중분류, 01월~12월, 합계)
+  if (!monthCols) {
+    monthCols = {};
+    for (let i = 0; i < 12; i++) monthCols[2 + i] = String(i + 1).padStart(2, '0') + '월';
+  }
+
+  // 새 FDATA 빌드 (해당 월들 클리어)
+  const usedMonths = Object.values(monthCols);
+  usedMonths.forEach(m => { FDATA[m] = {}; });
+
+  let appliedRows = 0;
+  let unmatched = [];
+  const startIdx = headerIdx >= 0 ? headerIdx + 1 : 0;
+
+  for (let i = startIdx; i < lines.length; i++) {
+    const cells = lines[i].split('\t');
+    if (cells.length < 3) continue;
+
+    // 대분류 또는 중분류 셀에서 키 추출
+    const big = (cells[0] || '').trim();
+    const mid = (cells[1] || '').trim();
+
+    // 합계/소계 행 무시
+    if (/^(합계|총합|소계|total)$/i.test(big) || /^(합계|총합|소계|total)$/i.test(mid)) continue;
+
+    // 키 결정
+    let mapKey = null;       // 정규화된 키
+    let isB_top = false;     // 엑셀 B열(대분류명)으로 매칭하는 단독 항목 (저작권 등)
+    if (mid) {
+      // 중분류로 매칭 시도
+      mapKey = normalizeF(mid);
+      if (!F_MID_MAP_NORM[mapKey]) {
+        // 중분류 없을 때, 대분류명을 통해 매칭 시도 (전자책/저작권)
+        const altKey = normalizeF(big);
+        if (F_MID_MAP_NORM[altKey]) { mapKey = altKey; isB_top = true; }
+      }
+    } else {
+      // 중분류 비어있으면 대분류로 매칭 (단독 항목: 전자책, 저작권, 또는 그룹 합계)
+      mapKey = normalizeF(big);
+      isB_top = true;
+    }
+
+    // 그룹 대분류 행 (01.아동, 02.만화, 03.단행본)은 무시 — 자식 합산이 자동으로 처리됨
+    if (isB_top && /^(01\.?아동|02\.?만화|03\.?단행본)$/.test(big.replace(/\s+/g, ''))) continue;
+
+    // 문구팬시 무시
+    if (mapKey === '문구팬시') continue;
+
+    if (!F_MID_MAP_NORM[mapKey]) {
+      // 미매칭 (헤더 등)
+      if (big || mid) unmatched.push(big || mid);
+      continue;
+    }
+
+    const [target대, target중] = F_MID_MAP_NORM[mapKey];
+
+    // 월별 값 분배 (백만원 → 원)
+    let rowAdded = false;
+    Object.keys(monthCols).forEach(colIdxStr => {
+      const colIdx = parseInt(colIdxStr, 10);
+      const v = parseNum(cells[colIdx]);
+      if (v === 0) return;
+      const month = monthCols[colIdx];
+      if (!FDATA[month][target대]) FDATA[month][target대] = {};
+      FDATA[month][target대][target중] = (FDATA[month][target대][target중] || 0) + v;
+      rowAdded = true;
+    });
+    if (rowAdded) appliedRows++;
+  }
+
+  const monthList = usedMonths.join(', ');
+  let status = `✅ ${appliedRows}개 항목 적용 완료 · 월: ${monthList}`;
+  setPasteStatus(status, 'green');
+  // 적용 완료 후 팝업 닫기
+  closeFPopup();
+  render();
+}
+
+function resetPasted() {
+  FDATA = {};
+  document.getElementById('pasteArea').value = '';
+  setPasteStatus('데이터 없음 — 구글시트에서 복사해 아래에 붙여넣으세요.', '');
+  render();
+}
+
+function setPasteStatus(msg, color) {
+  const el = document.getElementById('pasteStatus');
+  el.textContent = msg;
+  el.style.color = color === 'green' ? 'var(--green)' : color === 'red' ? 'var(--red)' : '';
+}
+
+// ─────────────────────────────────────────────────────────
+// 💾 현재 상태로 저장 (HTML 자체 다운로드)
+// ─────────────────────────────────────────────────────────
+function saveAsHtml() {
+  const state = {
+    FDATA: FDATA,
+    monthAdjust: monthAdjust,
+    savedAt: new Date().toISOString(),
+  };
+  const stateJson = JSON.stringify(state).replace(/<\/script/gi, '<\\/script');
+  // 마커를 동적으로 조립 — 함수 코드 자체에는 완전한 마커 텍스트가 등장하지 않게 분리
+  const TAG = 'SS_8f3a';
+  const beginMark = '/*' + 'BEGIN_' + TAG + '*/';
+  const endMark = '/*' + 'END_' + TAG + '*/';
+  const re = new RegExp('/\\*' + 'BEGIN_' + TAG + '\\*/[\\s\\S]*?/\\*' + 'END_' + TAG + '\\*/');
+  const original = document.documentElement.outerHTML;
+  const replacement = beginMark + 'window.__SAVED_STATE__=' + stateJson + ';' + endMark;
+  const replaced = original.replace(re, replacement);
+  if (replaced === original) {
+    alert('⚠️ 저장 실패: placeholder를 찾을 수 없습니다. 원본 HTML을 다시 사용해주세요.');
+    return;
+  }
+  const blob = new Blob(['<!DOCTYPE html>\n' + replaced], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const now = new Date();
+  const pad = n => String(n).padStart(2, '0');
+  const fname = `2026년도_출판IP사업본부_매출_추정_${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}.html`;
+  a.href = url;
+  a.download = fname;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function restoreState() {
+  if (!window.__SAVED_STATE__) return;
+  try {
+    const s = window.__SAVED_STATE__;
+    if (s.FDATA && typeof s.FDATA === 'object') FDATA = s.FDATA;
+    if (s.monthAdjust && typeof s.monthAdjust === 'object') {
+      Object.keys(s.monthAdjust).forEach(k => { monthAdjust[k] = s.monthAdjust[k]; });
+      // DELTA 재계산
+      if (typeof rebuildDelta === 'function') rebuildDelta();
+      if (typeof updateBadge === 'function') updateBadge();
+    }
+    // 상태 메시지
+    const fMonths = Object.keys(FDATA).length;
+    const adjCount = Object.keys(monthAdjust).length;
+    if (fMonths > 0 || adjCount > 0) {
+      const dt = new Date(s.savedAt);
+      const fmtDt = isNaN(dt.getTime()) ? '' : ` · 저장시각 ${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')} ${String(dt.getHours()).padStart(2,'0')}:${String(dt.getMinutes()).padStart(2,'0')}`;
+      showRestoreToast(`📂 저장된 상태 복원됨: F데이터 ${fMonths}개월 + 신간조정 ${adjCount}건${fmtDt}`);
+      if (fMonths > 0) {
+        setPasteStatus(`✅ 저장된 F. 현재시점추정 데이터 복원됨 (${fMonths}개월)`, 'green');
+      }
+    }
+  } catch (e) { console.error('상태 복원 실패:', e); }
+}
+
+function showRestoreToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'restore-toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { t.style.transition = 'opacity 0.5s'; t.style.opacity = '0'; }, 2000);
+  setTimeout(() => { t.remove(); }, 2600);
+}
+
+// 저장 placeholder (saveAsHtml가 이 마커 사이를 치환)
+/*BEGIN_SS_8f3a*/window.__SAVED_STATE__=null;/*END_SS_8f3a*/
+
+restoreState();
+// 월별 탭 초기 active 설정 (오늘 월)
+document.querySelectorAll('#singleWrap .month-tab').forEach((btn, i) => {
+  btn.classList.toggle('active', MONTHS[i] === currentSingle);
+});
+
+setMode('all');
+</script>
+
+
+</body></html>
